@@ -301,33 +301,11 @@ h6 {
   vertical-align: middle;
 }
 
-.top-bar-wa-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  background: rgba(37, 211, 102, 0.14);
-  color: #4ade80 !important;
-  border: 1px solid rgba(37, 211, 102, 0.35);
-  padding: 3px 12px;
-  border-radius: 999px;
-  font-weight: 700;
-  font-size: 0.80rem;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: var(--transition-fast);
-}
-
-.top-bar-wa-badge:hover {
-  background: #25d366;
-  color: #ffffff !important;
-  border-color: #25d366;
-  box-shadow: 0 2px 10px rgba(37, 211, 102, 0.35);
-}
-
-.top-bar-wa-badge i {
-  color: inherit !important;
+.top-bar-item i.text-whatsapp {
+  color: #25d366;
   font-size: 0.90rem;
 }
+
 
 /* ==========================================================================
    MAIN NAVBAR - CRISP WHITE & CORPORATE HIGH CONTRAST
