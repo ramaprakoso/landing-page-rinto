@@ -121,7 +121,9 @@ function initNavbar() {
    ========================================================================== */
 function initCalculator() {
   const serviceSelect = document.getElementById('calcService');
+  if (!serviceSelect) return;
   const packageSelect = document.getElementById('calcPackage');
+  if (!packageSelect) return;
   const rangeSlider = document.getElementById('calcRange');
   const volumeInput = document.getElementById('calcVolume');
   const locationSelect = document.getElementById('calcLocation');
@@ -212,7 +214,14 @@ function initCalculator() {
     calculateTotal();
   }
 
+  let calculatorStarted = false;
+
   function calculateTotal() {
+    if (!calculatorStarted) {
+      console.log('Event: calculator_start', { service: serviceSelect.value });
+      calculatorStarted = true;
+    }
+
     const serviceKey = serviceSelect.value;
     const serviceInfo = pricingData[serviceKey];
     const selectedPackageOption = packageSelect.options[packageSelect.selectedIndex];
@@ -223,7 +232,8 @@ function initCalculator() {
     const volume = parseInt(volumeInput.value, 10) || 0;
     const location = locationSelect.value;
 
-    const totalPrice = unitPrice * volume;
+    const basePrice = unitPrice * volume;
+    const maxPrice = basePrice * 1.25;
 
     // Update UI elements
     unitIndicator.textContent = `${formatNumber(volume)} ${serviceInfo.unit}`;
@@ -231,16 +241,16 @@ function initCalculator() {
     summaryPackageName.textContent = selectedPackageOption.textContent.split(' - ')[0];
     summaryVolume.textContent = `${formatNumber(volume)} ${serviceInfo.unit}`;
     summaryUnitPrice.textContent = `Rp ${formatNumber(unitPrice)} / ${serviceInfo.unit}`;
-    totalPriceOutput.textContent = `Rp ${formatNumber(totalPrice)}`;
+    totalPriceOutput.textContent = `Rp ${formatNumber(basePrice)} - Rp ${formatNumber(maxPrice)}`;
 
     // Build formatted WhatsApp message
     const waText =
-      `Halo Admin PT. Manggala Arta Sejahtera, saya ingin konsultasi dan meminta penawaran resmi untuk estimasi proyek berikut:
+      `Halo Admin Manggala Arta Sejahtera, saya ingin konsultasi dan meminta penawaran resmi untuk estimasi proyek berikut:
 
 - Kategori: ${serviceInfo.name}
 - Spesifikasi: ${selectedPackageOption.textContent.split(' - ')[0]}
 - Estimasi Volume: ${formatNumber(volume)} ${serviceInfo.unit}
-- Estimasi Biaya: Rp ${formatNumber(totalPrice)}
+- Estimasi Biaya: Rp ${formatNumber(basePrice)} - Rp ${formatNumber(maxPrice)}
 - Wilayah Proyek: ${location}
 
 Mohon informasi ketersediaan jadwal survey lokasi gratis dan rincian penawaran resminya. Terima kasih!`;
@@ -392,11 +402,13 @@ function initModalLightbox() {
    ========================================================================== */
 function initFaqAccordion() {
   const faqItems = document.querySelectorAll('.faq-item');
+  if (!faqItems || faqItems.length === 0) return;
 
   faqItems.forEach(item => {
     const questionBtn = item.querySelector('.faq-question');
     if (questionBtn) {
-      questionBtn.addEventListener('click', () => {
+      questionBtn.addEventListener('click', (e) => {
+        e.preventDefault();
         const isActive = item.classList.contains('active');
 
         // Close all others
@@ -404,7 +416,7 @@ function initFaqAccordion() {
           otherItem.classList.remove('active');
         });
 
-        // Toggle clicked
+        // Toggle clicked item
         if (!isActive) {
           item.classList.add('active');
         }
@@ -458,3 +470,34 @@ function initCounters() {
 function formatNumber(num) {
   return new Intl.NumberFormat('id-ID').format(num);
 }
+
+/* ==========================================================================
+   8. EVENT TRACKING
+   ========================================================================== */
+function initEventTracking() {
+  // Track WhatsApp Clicks
+  const waLinks = document.querySelectorAll('a[href^="https://wa.me"]');
+  waLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      console.log('Event: whatsapp_click', {
+        href: link.href,
+        text: link.textContent.trim()
+      });
+    });
+  });
+
+  // Track Service View based on pathname (if on a service page)
+  const path = window.location.pathname;
+  if (path.includes('/pengaspalan')) {
+    console.log('Event: service_view', { service: 'pengaspalan' });
+  } else if (path.includes('/uditch')) {
+    console.log('Event: service_view', { service: 'uditch' });
+  } else if (path.includes('/poles-beton')) {
+    console.log('Event: service_view', { service: 'poles-beton' });
+  }
+}
+
+// Initialize tracking when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+  initEventTracking();
+});
