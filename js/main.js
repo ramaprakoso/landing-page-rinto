@@ -81,9 +81,15 @@ function initNavbar() {
       mobileOverlay.addEventListener('click', closeDrawer);
     }
 
-    // Close menu when clicking any nav link
+    // Close menu when clicking normal nav links (exclude dropdown toggle)
     navLinks.forEach(link => {
-      link.addEventListener('click', closeDrawer);
+      if (link.classList.contains('dropdown-toggle')) {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+        });
+      } else {
+        link.addEventListener('click', closeDrawer);
+      }
     });
 
     // Close on ESC key
