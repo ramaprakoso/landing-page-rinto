@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initModalLightbox();
   initFaqAccordion();
   initCounters();
+  initFloatingWa();
 });
 
 /* ==========================================================================
@@ -507,3 +508,16 @@ function initEventTracking() {
 document.addEventListener('DOMContentLoaded', () => {
   initEventTracking();
 });
+
+/* ==========================================================================
+   9. PERSISTENT FLOATING WHATSAPP BUTTON HANDLER
+   ========================================================================== */
+function initFloatingWa() {
+  const waWrapper = document.querySelector('.floating-wa-wrapper');
+  if (!waWrapper) return;
+
+  // Guarantee wrapper is directly a child of <body> to avoid overflow/transform stacking traps
+  if (waWrapper.parentElement !== document.body) {
+    document.body.appendChild(waWrapper);
+  }
+}
