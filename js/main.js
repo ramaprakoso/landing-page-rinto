@@ -1,5 +1,5 @@
 /**
- * PT. Manggala Arta Sejahtera - Modern Interactive JavaScript
+ * PT Manggala Artajaya Sejahtera - Modern Interactive JavaScript
  * Handcrafted for optimal performance, responsiveness, and lead conversion.
  */
 
@@ -251,7 +251,7 @@ function initCalculator() {
 
     // Build formatted WhatsApp message
     const waText =
-      `Halo Admin Manggala Arta Sejahtera, saya ingin konsultasi dan meminta penawaran resmi untuk estimasi proyek berikut:
+      `Halo Admin PT Manggala Artajaya Sejahtera, saya ingin konsultasi dan meminta penawaran resmi untuk estimasi proyek berikut:
 
 - Kategori: ${serviceInfo.name}
 - Spesifikasi: ${selectedPackageOption.textContent.split(' - ')[0]}
@@ -366,7 +366,7 @@ function initModalLightbox() {
     item.addEventListener('click', () => {
       const img = item.querySelector('img');
       const title = item.querySelector('.gallery-title')?.textContent || 'Dokumentasi Proyek';
-      const desc = item.getAttribute('data-caption') || 'Dokumentasi pelaksanaan pekerjaan lapangan PT. Manggala Arta Sejahtera.';
+      const desc = item.getAttribute('data-caption') || 'Dokumentasi pelaksanaan pekerjaan lapangan PT Manggala Artajaya Sejahtera.';
       if (img) {
         openModal(img.src, title, desc);
       }

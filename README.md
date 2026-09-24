@@ -1,4 +1,4 @@
-# Landing Page PT. Manggala Arta Sejahtera
+# Landing Page PT Manggala Artajaya Sejahtera
 
 Landing page profesional dan modern untuk kontraktor sipil dengan spesialisasi:
 1. **Pengaspalan Jalan Hotmix** (Perumahan, Pergudangan/Pabrik, Area Parkir, Lapangan).
@@ -65,7 +65,7 @@ Website ini dibuat dengan arsitektur **Pure Static Web (HTML, CSS, JS)** tanpa b
 1. Buka dashboard [Cloudflare](https://dash.cloudflare.com/) dan login/daftar akun gratis.
 2. Pada menu kiri, pilih **Compute (Workers & Pages)** > **Create application** > tab **Pages**.
 3. Pilih opsi **Upload assets**.
-4. Beri nama proyek (misal: `manggala-arta-sejahtera`).
+4. Beri nama proyek (misal: `manggala-artajaya-sejahtera`).
 5. Drag & drop seluruh folder `landing-page-rinto` ke area upload Cloudflare.
 6. Klik **Deploy Site**. Website Anda akan langsung aktif dengan domain bawaan `*.pages.dev`.
 
@@ -78,10 +78,10 @@ Website ini dibuat dengan arsitektur **Pure Static Web (HTML, CSS, JS)** tanpa b
 ### Menghubungkan Domain Kustom Sendiri
 1. Masuk ke halaman proyek Cloudflare Pages Anda.
 2. Klik tab **Custom Domains** > **Set up a custom domain**.
-3. Masukkan domain yang Anda miliki (contoh: `manggalaartasejahtera.com`).
+3. Masukkan domain yang Anda miliki (contoh: `manggalaartajayasejahtera.com`).
 4. Ikuti instruksi DNS otomatis dari Cloudflare (SSL HTTPS aktif otomatis).
 
 ---
 
 ## 🛡️ Hak Cipta & Kepemilikan
-&copy; 2026 PT. Manggala Arta Sejahtera. Hak cipta dilindungi undang-undang.
+&copy; 2026 PT Manggala Artajaya Sejahtera. Hak cipta dilindungi undang-undang.
