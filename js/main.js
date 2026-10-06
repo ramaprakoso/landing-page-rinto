@@ -175,7 +175,6 @@ function initCalculator() {
         { id: "uditch-60", name: "Pasang U-Ditch 60 x 60 x 120 cm (Mutu K-350)", price: 375000 },
         { id: "uditch-80", name: "Pasang U-Ditch 80 x 80 x 120 cm (Mutu K-350)", price: 400000 },
         { id: "uditch-100", name: "Pasang U-Ditch 100 x 100 x 120 cm (Mutu K-350)", price: 500000 },
-        { id: "kansteen-std", name: "Pasang Kansteen Standar / DKI (Mutu K-350)", price: 115000 }
       ]
     },
     poles: {
