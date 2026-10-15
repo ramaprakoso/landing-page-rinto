@@ -4,15 +4,23 @@
    ========================================================================== */
 
 :root {
-  /* Brand Color Palette */
+  /* Brand Color Palette: navy + kuning konstruksi.
+     Ganti palet cukup di blok ini (--accent* , --secondary*, --on-accent). */
   --primary: #0b132b;
   --primary-light: #1c2541;
   --primary-hover: #151e33;
-  --secondary: #2563eb;
-  --secondary-dark: #1d4ed8;
-  --accent: #f59e0b;
-  --accent-hover: #d97706;
-  --accent-glow: rgba(245, 158, 11, 0.25);
+  --secondary: #a16207;
+  --secondary-dark: #854d0e;
+  --accent: #facc15;
+  --accent-hover: #eab308;
+  --accent-glow: rgba(var(--accent-rgb), 0.25);
+  --accent-rgb: 250, 204, 21;
+  --accent-strong: #eab308;
+  --accent-strong-rgb: 202, 138, 4;
+  --accent-light: #fde047;
+  --accent-pale: #fef08a;
+  --on-accent: #0b132b;
+  --accent-ink: #a16207;
 
   /* Status & Functional */
   --success: #10b981;
@@ -46,7 +54,7 @@
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
   --shadow-lg: 0 10px 25px -3px rgba(15, 23, 42, 0.1), 0 4px 6px -4px rgba(15, 23, 42, 0.05);
   --shadow-xl: 0 20px 35px -5px rgba(15, 23, 42, 0.15), 0 8px 10px -6px rgba(15, 23, 42, 0.05);
-  --shadow-accent: 0 10px 25px -3px rgba(245, 158, 11, 0.35);
+  --shadow-accent: 0 10px 25px -3px rgba(var(--accent-rgb), 0.35);
 
   /* Transitions */
   --transition-fast: 0.2s ease;
@@ -136,7 +144,7 @@ h6 {
   align-items: center;
   gap: 8px;
   padding: 6px 14px;
-  background: rgba(37, 99, 235, 0.1);
+  background: rgba(var(--accent-strong-rgb), 0.1);
   color: var(--secondary);
   border-radius: 999px;
   font-size: 0.85rem;
@@ -147,8 +155,8 @@ h6 {
 }
 
 .section-tag.accent-tag {
-  background: rgba(245, 158, 11, 0.15);
-  color: #b45309;
+  background: rgba(var(--accent-rgb), 0.15);
+  color: var(--secondary);
 }
 
 .section-title {
@@ -184,27 +192,27 @@ h6 {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--accent) 0%, #ea580c 100%);
-  color: #ffffff;
-  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.35);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
+  color: var(--on-accent);
+  box-shadow: 0 4px 14px rgba(var(--accent-strong-rgb), 0.35);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(234, 88, 12, 0.45);
-  background: linear-gradient(135deg, #f59e0b 0%, #c2410c 100%);
+  box-shadow: 0 6px 20px rgba(var(--accent-strong-rgb), 0.45);
+  background: linear-gradient(135deg, var(--accent-hover) 0%, var(--accent-strong) 100%);
 }
 
 .btn-secondary {
   background: var(--secondary);
   color: #ffffff;
-  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 4px 14px rgba(var(--accent-strong-rgb), 0.3);
 }
 
 .btn-secondary:hover {
   background: var(--secondary-dark);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+  box-shadow: 0 6px 20px rgba(var(--accent-strong-rgb), 0.4);
 }
 
 .btn-outline-white {
@@ -349,13 +357,13 @@ h6 {
   width: 44px;
   height: 44px;
   border-radius: 10px;
-  background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ffffff;
+  color: var(--on-accent);
   font-size: 1.35rem;
-  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.35);
+  box-shadow: 0 4px 12px rgba(var(--accent-rgb), 0.35);
   flex-shrink: 0;
 }
 
@@ -375,7 +383,7 @@ h6 {
 }
 
 .brand-title span {
-  color: #2563eb;
+  color: var(--secondary);
 }
 
 .brand-subtitle {
@@ -416,7 +424,7 @@ h6 {
 
 .nav-link:hover,
 .nav-link.active {
-  color: #2563eb;
+  color: var(--secondary);
 }
 
 .nav-link::after {
@@ -426,7 +434,7 @@ h6 {
   left: 0;
   width: 0%;
   height: 2.5px;
-  background: linear-gradient(90deg, #2563eb, #3b82f6);
+  background: linear-gradient(90deg, var(--secondary), var(--accent));
   border-radius: 999px;
   transition: width 0.25s ease;
 }
@@ -487,7 +495,7 @@ h6 {
 
 .hamburger-btn:hover {
   background: #e2e8f0;
-  color: #2563eb;
+  color: var(--secondary);
 }
 
 /* Mobile Drawer Backdrop Overlay */
@@ -508,7 +516,7 @@ h6 {
 }
 
 .hamburger-btn:hover {
-  color: #2563eb;
+  color: var(--secondary);
 }
 
 /* ==========================================================================
@@ -529,8 +537,8 @@ h6 {
   width: 100%;
   height: 100%;
   background-image:
-    radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.18) 0%, transparent 50%),
-    radial-gradient(circle at 10% 80%, rgba(245, 158, 11, 0.12) 0%, transparent 40%),
+    radial-gradient(circle at 80% 20%, rgba(var(--accent-strong-rgb), 0.18) 0%, transparent 50%),
+    radial-gradient(circle at 10% 80%, rgba(var(--accent-rgb), 0.12) 0%, transparent 40%),
     linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
   background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
@@ -554,9 +562,9 @@ h6 {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: rgba(245, 158, 11, 0.12);
-  border: 1px solid rgba(245, 158, 11, 0.35);
-  color: #fde68a;
+  background: rgba(var(--accent-rgb), 0.12);
+  border: 1px solid rgba(var(--accent-rgb), 0.35);
+  color: var(--accent-pale);
   padding: 7px 16px;
   border-radius: 999px;
   font-size: 0.85rem;
@@ -578,7 +586,7 @@ h6 {
 }
 
 .hero-title .highlight-text {
-  background: linear-gradient(135deg, #fbbf24 0%, #ea580c 100%);
+  background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent-strong) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -664,21 +672,21 @@ h6 {
   height: 8px;
   background: var(--accent);
   border-radius: 50%;
-  box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
+  box-shadow: 0 0 0 0 rgba(var(--accent-rgb), 0.7);
   animation: pulseAnimation 1.8s infinite;
 }
 
 @keyframes pulseAnimation {
   0% {
-    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
+    box-shadow: 0 0 0 0 rgba(var(--accent-rgb), 0.7);
   }
 
   70% {
-    box-shadow: 0 0 0 10px rgba(245, 158, 11, 0);
+    box-shadow: 0 0 0 10px rgba(var(--accent-rgb), 0);
   }
 
   100% {
-    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+    box-shadow: 0 0 0 0 rgba(var(--accent-rgb), 0);
   }
 }
 
@@ -711,7 +719,7 @@ h6 {
 .floating-icon {
   width: 48px;
   height: 48px;
-  background: rgba(37, 99, 235, 0.12);
+  background: rgba(var(--accent-strong-rgb), 0.12);
   color: var(--secondary);
   border-radius: var(--radius-md);
   display: flex;
@@ -815,7 +823,7 @@ h6 {
 .service-card:hover {
   transform: translateY(-8px);
   box-shadow: var(--shadow-xl);
-  border-color: rgba(37, 99, 235, 0.4);
+  border-color: rgba(var(--accent-strong-rgb), 0.4);
 }
 
 .service-card-img-box {
@@ -856,7 +864,7 @@ h6 {
   bottom: 12px;
   right: 14px;
   background: var(--accent);
-  color: #ffffff;
+  color: var(--on-accent);
   padding: 5px 12px;
   border-radius: var(--radius-sm);
   font-size: 0.82rem;
@@ -1034,7 +1042,7 @@ h6 {
 }
 
 .specs-table tr:hover td {
-  background: #eff6ff;
+  background: #fff7ed;
 }
 
 .specs-table td.badge-cell {
@@ -1191,9 +1199,9 @@ h6 {
 }
 
 #unitIndicator {
-  background: rgba(245, 158, 11, 0.15);
-  border: 1px solid rgba(245, 158, 11, 0.35);
-  color: #fbbf24;
+  background: rgba(var(--accent-rgb), 0.15);
+  border: 1px solid rgba(var(--accent-rgb), 0.35);
+  color: var(--accent-light);
   padding: 2px 10px;
   border-radius: 999px;
   font-size: 0.82rem;
@@ -1232,7 +1240,7 @@ h6 {
 .calc-select:focus,
 .calc-input:focus {
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.25);
+  box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.25);
   background-color: #0d1836;
 }
 
@@ -1362,10 +1370,10 @@ h6 {
   font-family: var(--font-heading);
   font-size: clamp(1.4rem, 4.5vw, 2.1rem);
   font-weight: 800;
-  color: #fbbf24;
+  color: var(--accent-light);
   margin: 6px 0;
   line-height: 1.25;
-  text-shadow: 0 2px 12px rgba(245, 158, 11, 0.25);
+  text-shadow: 0 2px 12px rgba(var(--accent-rgb), 0.25);
   word-break: break-word;
 }
 
@@ -1474,7 +1482,7 @@ h6 {
 .gallery-tag {
   display: inline-block;
   background: var(--accent);
-  color: #ffffff;
+  color: var(--on-accent);
   font-size: 0.72rem;
   font-weight: 800;
   padding: 4px 10px;
@@ -1550,7 +1558,7 @@ h6 {
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: rgba(37, 99, 235, 0.1);
+  background: rgba(var(--accent-strong-rgb), 0.1);
   color: var(--secondary);
   display: flex;
   align-items: center;
@@ -1610,8 +1618,8 @@ h6 {
   width: 56px;
   height: 56px;
   border-radius: var(--radius-md);
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(234, 88, 12, 0.1) 100%);
-  color: var(--accent);
+  background: linear-gradient(135deg, rgba(var(--accent-rgb), 0.15) 0%, rgba(var(--accent-strong-rgb), 0.1) 100%);
+  color: var(--accent-ink);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1659,7 +1667,7 @@ h6 {
   right: -20%;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(37, 99, 235, 0.2) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(var(--accent-strong-rgb), 0.2) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -1696,7 +1704,7 @@ h6 {
 }
 
 .coverage-tag i {
-  color: var(--accent);
+  color: var(--accent-ink);
 }
 
 .coverage-cta-card {
@@ -1802,7 +1810,8 @@ h6 {
    ========================================================================== */
 .cta-banner-section {
   padding: 80px 0;
-  background: linear-gradient(135deg, #1d4ed8 0%, #0b132b 100%);
+  background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+  border-top: 4px solid var(--accent);
   color: #ffffff;
   text-align: center;
   position: relative;
@@ -2260,8 +2269,8 @@ h6 {
 
   .nav-link:hover,
   .nav-link.active {
-    background: rgba(37, 99, 235, 0.25);
-    color: #60a5fa;
+    background: rgba(var(--accent-strong-rgb), 0.25);
+    color: var(--accent-light);
   }
 
   .nav-link::after {
@@ -2568,8 +2577,8 @@ h6 {
 
   .nav-menu .dropdown-menu a:hover,
   .nav-menu .dropdown-menu a.active {
-    background: rgba(37, 99, 235, 0.25);
-    color: #60a5fa;
+    background: rgba(var(--accent-strong-rgb), 0.25);
+    color: var(--accent-light);
   }
 }
 
@@ -2607,7 +2616,7 @@ h6 {
   transform: translateY(-6px);
   background: #ffffff;
   border-color: var(--secondary);
-  box-shadow: 0 16px 32px rgba(37, 99, 235, 0.1);
+  box-shadow: 0 16px 32px rgba(var(--accent-strong-rgb), 0.1);
 }
 
 .simple-step-header {
@@ -2959,4 +2968,466 @@ h6 {
     grid-template-columns: 1fr;
     gap: 16px;
   }
+}
+/* ==========================================================================
+   DESIGN REFRESH v2 — palet oranye + navy, slot foto, layanan selang-seling,
+   strip keunggulan, galeri berkapsi, bagian kepercayaan (placeholder klien)
+   ========================================================================== */
+
+/* Tombol sekunder: navy (oranye khusus CTA utama, hijau khusus WhatsApp) */
+.btn-secondary {
+  background: var(--primary);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(11, 19, 43, 0.25);
+}
+
+.btn-secondary:hover {
+  background: var(--primary-light);
+  box-shadow: 0 6px 20px rgba(11, 19, 43, 0.35);
+}
+
+/* ---------- Slot foto: penanda foto asli yang perlu diisi ---------- */
+.photo-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  padding: 24px;
+  text-align: center;
+  color: #9a3412;
+  background: repeating-linear-gradient(45deg, #fff7ed, #fff7ed 14px, #ffedd5 14px, #ffedd5 28px);
+  border: 2px dashed #fb923c;
+}
+
+.photo-slot i {
+  font-size: 2rem;
+  color: #ea580c;
+}
+
+.photo-slot strong {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.photo-slot span {
+  font-size: 0.82rem;
+  line-height: 1.45;
+  max-width: 300px;
+}
+
+.photo-slot code {
+  font-size: 0.72rem;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: rgba(154, 52, 18, 0.08);
+  word-break: break-all;
+}
+
+.photo-slot--dark {
+  color: #fed7aa;
+  background: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.03) 14px, rgba(255, 255, 255, 0.07) 14px, rgba(255, 255, 255, 0.07) 28px);
+  border-color: rgba(251, 146, 60, 0.6);
+}
+
+.photo-slot--dark i {
+  color: #fb923c;
+}
+
+.photo-slot--dark code {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.hero-main-card .photo-slot {
+  height: 420px;
+  border-radius: var(--radius-xl);
+}
+
+/* ---------- Layanan: baris selang-seling (gabungan masalah + solusi) ---------- */
+.service-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.service-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.service-row:nth-child(even) .service-row-media {
+  order: 2;
+}
+
+.service-row-media {
+  position: relative;
+  min-height: 340px;
+  background: var(--bg-subtle);
+}
+
+.service-row-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+}
+
+.service-row-media .photo-slot {
+  position: absolute;
+  inset: 0;
+}
+
+.service-row-body {
+  padding: 44px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.service-row-body .service-pill {
+  position: static;
+  align-self: flex-start;
+  background: rgba(var(--accent-strong-rgb), 0.1);
+  color: var(--secondary);
+  border: 0;
+  backdrop-filter: none;
+  margin-bottom: 14px;
+}
+
+.service-row-problem {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-weight: 600;
+  color: var(--text-main);
+  background: var(--bg-page);
+  border-left: 3px solid var(--accent);
+  padding: 12px 16px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin-bottom: 18px;
+  font-size: 0.95rem;
+}
+
+.service-row-problem i {
+  color: var(--accent-ink);
+  margin-top: 4px;
+}
+
+.service-row-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+}
+
+.service-row-price {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.service-row-price strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  color: var(--text-main);
+}
+
+@media (max-width: 900px) {
+  .service-row {
+    grid-template-columns: 1fr;
+  }
+
+  .service-row:nth-child(even) .service-row-media {
+    order: 0;
+  }
+
+  .service-row-media {
+    min-height: 240px;
+  }
+
+  .service-row-body {
+    padding: 28px 24px;
+  }
+}
+
+/* ---------- Keunggulan: satu strip, bukan 4 kartu terpisah ---------- */
+.why-us-section .features-grid {
+  gap: 0;
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.why-us-section .feature-box {
+  background: transparent;
+  border: 0;
+  border-right: 1px solid var(--border-color);
+  border-radius: 0;
+  padding: 32px 28px;
+}
+
+.why-us-section .feature-box:last-child {
+  border-right: 0;
+}
+
+.why-us-section .feature-box:hover {
+  transform: none;
+  box-shadow: none;
+  background: var(--bg-page);
+}
+
+@media (max-width: 1100px) {
+  .why-us-section .feature-box:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .why-us-section .feature-box:nth-child(-n+2) {
+    border-bottom: 1px solid var(--border-color);
+  }
+}
+
+@media (max-width: 768px) {
+  .why-us-section .feature-box {
+    border-right: 0;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .why-us-section .feature-box:last-child {
+    border-bottom: 0;
+  }
+}
+
+/* ---------- Galeri: keterangan di bawah foto (selalu terbaca) ---------- */
+.gallery-item {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  background: var(--primary);
+}
+
+.gallery-item img,
+.gallery-item .photo-slot {
+  height: 220px;
+  min-height: 0;
+  flex-shrink: 0;
+}
+
+.gallery-item:hover img {
+  transform: none;
+}
+
+.gallery-overlay {
+  position: static;
+  background: var(--primary);
+  opacity: 1;
+  flex-grow: 1;
+  justify-content: flex-start;
+}
+
+.gallery-title {
+  color: #ffffff;
+}
+
+/* ---------- Bagian kepercayaan (diisi data asli dari klien) ---------- */
+.trust-section {
+  padding: 96px 0;
+  background: var(--bg-page);
+}
+
+.trust-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.trust-stat {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  text-align: center;
+}
+
+.trust-stat strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--secondary);
+  line-height: 1.1;
+}
+
+.trust-stat span {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.trust-subtitle {
+  text-align: center;
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 18px;
+}
+
+.trust-logos {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.logo-slot {
+  height: 84px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border-radius: var(--radius-md);
+  font-size: 0.78rem;
+}
+
+.logo-slot i {
+  font-size: 1.3rem;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.testimonial-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.testimonial-card > i {
+  font-size: 1.6rem;
+  color: var(--accent-ink);
+}
+
+.testimonial-card blockquote {
+  font-size: 0.98rem;
+  color: var(--text-main);
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+.testimonial-card figcaption strong {
+  display: block;
+  font-family: var(--font-heading);
+}
+
+.testimonial-card figcaption span {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.legal-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 28px;
+  padding: 18px 24px;
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.legal-strip i {
+  color: var(--accent-ink);
+  margin-right: 6px;
+}
+
+.legal-strip a {
+  color: var(--secondary);
+  font-weight: 700;
+}
+
+/* Penanda isi yang masih menunggu data klien */
+.is-placeholder {
+  border: 2px dashed #fb923c !important;
+  background: #fff7ed !important;
+  color: #9a3412;
+}
+
+.placeholder-text {
+  border: 1px dashed #fb923c;
+  background: #fff7ed;
+  color: #9a3412;
+  padding: 0 6px;
+  border-radius: 4px;
+  font-style: normal;
+}
+
+.trust-stat.is-placeholder strong,
+.testimonial-card.is-placeholder blockquote {
+  color: #9a3412;
+}
+
+@media (max-width: 1100px) {
+  .trust-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .trust-logos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 540px) {
+  .trust-section {
+    padding: 64px 0;
+  }
+
+  .trust-logos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .trust-stat strong {
+    font-size: 1.7rem;
+  }
+}
+
+/* ---------- Kalkulator: satu angka utama + kisaran kecil ---------- */
+.total-price {
+  word-break: normal;
+  white-space: nowrap;
+}
+
+.total-range {
+  font-size: 0.85rem;
+  color: var(--accent-pale);
+  font-weight: 600;
 }

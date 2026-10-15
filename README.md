@@ -12,24 +12,34 @@ Landing page profesional dan modern untuk kontraktor sipil dengan spesialisasi:
 ```text
 landing-page-rinto/
 │
-├── index.html              # Struktur utama landing page (HTML5 semantik & Schema.org)
+├── index.html              # Beranda umum (3 layanan, HTML5 semantik & Schema.org)
+├── pengaspalan/index.html  # Halaman layanan Pengaspalan Hotmix
+├── uditch/index.html       # Halaman layanan Pemasangan U-Ditch
+├── poles-beton/index.html  # Halaman layanan Poles Beton
+├── robots.txt              # Aturan crawler mesin pencari
+├── sitemap.xml             # Daftar URL untuk mesin pencari (update <lastmod> bila konten berubah)
 │
 ├── css/
 │   └── style.css           # Desain sistem, warna, tipografi, dan tata letak responsif
 │
 ├── js/
-│   └── main.js             # Logika kalkulator interaktif RAB, filter galeri, tabs & modal
+│   └── main.js             # Navbar, kalkulator estimasi biaya, filter galeri, FAQ & modal
 │
 └── assets/
-    └── images/             # Dokumentasi proyek & katalog produk kansteen
-        ├── spesifikasi-kansteen.jpg    # Skematik dimensi resmi kansteen K-350
-        ├── pengaspalan-roller.jpg      # Dokumentasi compactor roller di parkiran
-        ├── pekerja-aspal-hotmix.jpg    # Dokumentasi tim gelar aspal hotmix
+    └── images/             # Dokumentasi proyek
+        ├── pengaspalan-roller.jpg      # Compactor roller di area parkir (hero beranda)
+        ├── pekerja-aspal-hotmix.jpg    # Tim gelar aspal hotmix (hero halaman pengaspalan)
+        ├── uditch-drainase-hero.jpg    # Ilustrasi pemasangan U-Ditch precast (hero halaman U-Ditch)
         ├── drainase-grating-plaza.jpg  # Saluran drainase grill besi di area plaza
-        ├── aspal-kansteen-finish.jpg   # Hasil akhir jalan aspal dengan kansteen rapi
-        ├── uditch-drainase-hero.jpg    # Pemasangan U-Ditch precast dengan excavator
-        └── poles-beton-showcase.jpg    # Lantai gudang industri poles kilap glossy
+        ├── poles-beton-grinding.jpg    # Proses grinding poles beton (hero halaman poles)
+        ├── poles-beton-densifier.jpg   # Aplikasi cairan densifier
+        ├── poles-beton-gudang.jpg      # Pengerjaan lantai gudang
+        ├── poles-beton-showcase.jpg    # Lantai gudang industri poles kilap
+        ├── spesifikasi-kansteen.jpg    # (tidak dipakai) skematik kansteen K-350
+        └── aspal-kansteen-finish.jpg   # (tidak dipakai) jalan aspal dengan kansteen
 ```
+
+> Keempat halaman memakai template yang sama. Perubahan pada bagian bersama (FAQ, galeri, area layanan, footer) perlu diterapkan di keempat file `index.html`.
 
 ---
 
@@ -37,23 +47,70 @@ landing-page-rinto/
 
 ### 1. Mengubah Nomor WhatsApp Bisnis
 Jika ada pergantian nomor WhatsApp di kemudian hari:
-- Buka `index.html`: Cari nomor `6282260840642` dan ganti dengan nomor baru Anda (gunakan format internasional tanpa tanda `+`, contoh: `628123456789`).
+- Cari nomor `6282260840642` di keempat file HTML (`index.html`, `pengaspalan/`, `uditch/`, `poles-beton/`) dan ganti dengan nomor baru (format internasional tanpa tanda `+`, contoh: `628123456789`). Termasuk `"telephone"` pada Schema.org (format `+62...`) dan nomor yang tampil di top bar, menu mobile & footer (format `+62 8xx-xxxx-xxxx`).
 - Buka `js/main.js`: Cari nomor `6282260840642` pada fungsi pembuatan pesan WhatsApp di bagian kalkulator.
 
-### 2. Mengubah Tarif / Harga Acuan pada Kalkulator RAB
-Harga acuan estimasi tersimpan rapi di file `js/main.js` pada objek `pricingData` (mulai baris 105). Anda dapat menyesuaikan harga per satuan sesuai fluktuasi pasar:
+### 2. Mengubah Tarif / Harga Acuan pada Kalkulator Estimasi
+Harga acuan tersimpan di `js/main.js` pada objek `pricingData` (fungsi `initCalculator`). Rumus per layanan:
+
+| Layanan | Rumus | Pengaturan |
+|---|---|---|
+| Pengaspalan | `price` × tebal (cm) × luas (m²) | `priceUnit: "m² / cm"`, `defaultThickness: 7` |
+| U-Ditch | `price` per buah × jumlah buah (panjang ÷ 1,2 m, dibulatkan ke atas) | `priceUnit: "buah"`, `pieceLength: 1.2` |
+| Poles Beton | `price` × luas (m²) | — |
+
 ```javascript
 const pricingData = {
   aspal: {
+    priceUnit: "m² / cm",
+    defaultThickness: 7,
     packages: [
-      { id: "acwc-overlay", name: "Paket Gelar Hotmix AC-WC (Tebal 2-3 cm)", price: 85000 },
+      { id: "aspal-terpasang", name: "Jasa Pengaspalan Terpasang", price: 125000 }
+    ]
+  },
+  uditch: {
+    priceUnit: "buah",
+    pieceLength: 1.2,
+    packages: [
+      { id: "uditch-30", name: "Pasang U-Ditch 30 x 30 x 120 cm (Mutu K-350)", price: 250000 },
       ...
     ]
   },
-  uditch: { ... },
-  poles: { ... }
+  poles: {
+    packages: [
+      { id: "poles-terpasang", name: "Jasa Poles Beton Terpasang", price: 160000 }
+    ]
+  }
 };
 ```
+
+Hasil kalkulator ditampilkan sebagai rentang: harga dasar sampai harga dasar × 1,25.
+
+Setelah mengubah harga, sesuaikan juga:
+- Teks awal ringkasan kalkulator di HTML (`#summaryUnitPrice`, `#totalPriceOutput`, dll.).
+- FAQ "Bagaimana harga di kalkulator estimasi dihitung?" di keempat halaman.
+
+### 3. Mengisi Slot Foto (Kotak Oranye Bergaris)
+Foto yang perlu diganti foto proyek asli ditandai kotak oranye bergaris bertuliskan nama file. **Cukup simpan foto dengan nama file tersebut di `assets/images/`.** Foto langsung tampil menggantikan kotaknya, tanpa perlu mengedit HTML (diatur oleh `initPhotoSlots()` di `js/main.js`).
+
+| Nama file | Tampil di |
+|---|---|
+| `foto-hero-beranda.jpg` | Hero Beranda: tim & alat berat di lokasi proyek |
+| `foto-hero-uditch.jpg` | Hero halaman U-Ditch: proses pemasangan U-Ditch |
+| `foto-hero-poles.jpg` | Hero halaman Poles Beton: proses grinding |
+| `foto-layanan-uditch.jpg` | Bagian Layanan (semua halaman): pemasangan / hasil U-Ditch |
+| `foto-layanan-poles.jpg` | Bagian Layanan (semua halaman): hasil poles lantai gudang |
+
+Format: JPG, posisi horizontal, terang, lebar minimal 1600 px. Kompres dulu (misal lewat squoosh.app) supaya ukurannya di bawah ±400 KB.
+
+### 4. Mengisi Bagian "Dipercaya Klien"
+Bagian `#klien` masih berisi placeholder bergaris oranye (`.is-placeholder` / `.placeholder-text`). Isi dengan data asli di keempat file HTML:
+- **Angka:** proyek selesai, m² area diaspal, tahun pengalaman, jumlah klien perusahaan.
+- **Logo klien:** ganti tiap `<div class="logo-slot ...">` dengan `<img>` logo.
+- **Testimoni:** isi kutipan, nama, dan jabatan/perusahaan, dengan izin klien.
+- **Legalitas:** NIB, NPWP, SBU/sertifikat.
+
+Setelah diisi, hapus class `is-placeholder` / `placeholder-text` supaya garis oranyenya hilang.
 
 ---
 

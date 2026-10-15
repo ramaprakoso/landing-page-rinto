@@ -4,6 +4,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initPhotoSlots();
   initNavbar();
   initCalculator();
   initTechnicalSpecsTabs();
@@ -13,6 +14,21 @@ document.addEventListener('DOMContentLoaded', () => {
   initCounters();
   initFloatingWa();
 });
+
+/* ==========================================================================
+   0. SLOT FOTO (PLACEHOLDER FOTO ASLI)
+   Setiap .photo-slot punya data-photo-src. Jika file foto tersebut sudah ada
+   di assets/images, slot otomatis diganti foto; jika belum, slot tetap tampil.
+   ========================================================================== */
+function initPhotoSlots() {
+  document.querySelectorAll('.photo-slot[data-photo-src]').forEach(slot => {
+    const img = new Image();
+    img.alt = slot.dataset.photoAlt || '';
+    img.loading = slot.dataset.photoEager ? 'eager' : 'lazy';
+    img.onload = () => slot.replaceWith(img);
+    img.src = slot.dataset.photoSrc;
+  });
+}
 
 /* ==========================================================================
    1. NAVBAR & MOBILE MENU
@@ -113,10 +129,10 @@ function initNavbar() {
 
       if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
         navLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === `#${sectionId}`) {
-            link.classList.add('active');
-          }
+          const href = link.getAttribute('href') || '';
+          // Hanya link anchor di halaman ini; status aktif halaman (Beranda / Jasa Kami) dibiarkan
+          if (!href.startsWith('#') || href === '#') return;
+          link.classList.toggle('active', href === `#${sectionId}`);
         });
       }
     });
@@ -133,7 +149,8 @@ function initCalculator() {
   if (!packageSelect) return;
   const rangeSlider = document.getElementById('calcRange');
   const volumeInput = document.getElementById('calcVolume');
-  const locationSelect = document.getElementById('calcLocation');
+  const thicknessGroup = document.getElementById('calcThicknessGroup');
+  const thicknessInput = document.getElementById('calcThickness');
 
   const labelVolume = document.getElementById('labelVolume');
   const unitIndicator = document.getElementById('unitIndicator');
@@ -143,6 +160,7 @@ function initCalculator() {
   const summaryVolume = document.getElementById('summaryVolume');
   const summaryUnitPrice = document.getElementById('summaryUnitPrice');
   const totalPriceOutput = document.getElementById('totalPriceOutput');
+  const totalRangeOutput = document.getElementById('totalRangeOutput');
   const btnSendWA = document.getElementById('btnSendWAEstimate');
 
   // Service options and pricing database
@@ -150,20 +168,21 @@ function initCalculator() {
     aspal: {
       name: "Pengaspalan Hotmix",
       unit: "m²",
+      priceUnit: "m² / cm",     // harga per m² per cm tebal
+      defaultThickness: 7,      // asumsi tebal tebar (cm), bisa diubah pelanggan
       min: 30,
       max: 3000,
       step: 10,
       defaultVal: 150,
       packages: [
-        { id: "acwc-overlay", name: "Paket Gelar Hotmix AC-WC (Tebal 2-3 cm)", price: 85000 },
-        { id: "acbc-medium", name: "Paket Gelar Hotmix AC-BC (Tebal 4-5 cm)", price: 125000 },
-        { id: "terima-jadi", name: "Paket Full Terima Jadi (Sub-base + Makadam + AC-WC)", price: 185000 },
-        { id: "sand-sheet", name: "Paket Sand Sheet Halus (Halaman / Lapangan)", price: 75000 }
+        { id: "aspal-terpasang", name: "Jasa Pengaspalan Terpasang", price: 125000 }
       ]
     },
     uditch: {
       name: "Pemasangan U-Ditch Precast",
-      unit: "m¹",
+      unit: "m'",
+      priceUnit: "buah",   // harga per buah U-Ditch
+      pieceLength: 1.2,    // 1 buah = 120 cm
       min: 10,
       max: 500,
       step: 2,
@@ -178,18 +197,14 @@ function initCalculator() {
       ]
     },
     poles: {
-      name: "Poles Beton & Floor Hardener",
+      name: "Poles Beton",
       unit: "m²",
       min: 50,
       max: 5000,
       step: 25,
       defaultVal: 200,
       packages: [
-        { id: "trowel-only", name: "Finish Trowel Cor Beton Basah", price: 25000 },
-        { id: "fh-nonmetallic", name: "Floor Hardener Non-Metallic (Sika / Fosroc)", price: 45000 },
-        { id: "fh-metallic", name: "Floor Hardener Metallic Heavy Duty", price: 75000 },
-        { id: "diamond-gloss", name: "Diamond Grinding & Polishing (High Gloss)", price: 95000 },
-        { id: "densifier-full", name: "Paket Komplit Polish + Chemical Densifier Anti-Debu", price: 135000 }
+        { id: "poles-terpasang", name: "Jasa Poles Beton Terpasang", price: 160000 }
       ]
     }
   };
@@ -207,12 +222,18 @@ function initCalculator() {
     volumeInput.value = serviceInfo.defaultVal;
     volumeInput.min = serviceInfo.min;
 
+    // Input tebal hanya untuk layanan yang harganya dihitung per cm tebal (pengaspalan)
+    if (thicknessGroup) {
+      thicknessGroup.style.display = serviceInfo.defaultThickness ? '' : 'none';
+      if (serviceInfo.defaultThickness) thicknessInput.value = serviceInfo.defaultThickness;
+    }
+
     // Populate packages
     packageSelect.innerHTML = '';
     serviceInfo.packages.forEach(pkg => {
       const option = document.createElement('option');
       option.value = pkg.id;
-      option.textContent = `${pkg.name} - Rp ${formatNumber(pkg.price)} / ${serviceInfo.unit}`;
+      option.textContent = `${pkg.name} - Rp ${formatNumber(pkg.price)} / ${serviceInfo.priceUnit || serviceInfo.unit}`;
       option.dataset.price = pkg.price;
       packageSelect.appendChild(option);
     });
@@ -236,18 +257,35 @@ function initCalculator() {
 
     const unitPrice = parseInt(selectedPackageOption.dataset.price, 10) || 0;
     const volume = parseInt(volumeInput.value, 10) || 0;
-    const location = locationSelect.value;
 
-    const basePrice = unitPrice * volume;
+    const priceUnit = serviceInfo.priceUnit || serviceInfo.unit;
+    let quantity = volume;
+    let volumeText = `${formatNumber(volume)} ${serviceInfo.unit}`;
+
+    if (serviceInfo.pieceLength) {
+      // Harga per buah (mis. U-Ditch): konversi meter ke jumlah buah
+      quantity = Math.ceil(volume / serviceInfo.pieceLength);
+      volumeText = `${formatNumber(volume)} ${serviceInfo.unit} (≈ ${formatNumber(quantity)} ${priceUnit})`;
+    } else if (serviceInfo.defaultThickness && thicknessInput) {
+      // Harga per m² per cm (pengaspalan): harga × tebal (cm) × luas (m²)
+      const thickness = parseFloat(thicknessInput.value) || 0;
+      quantity = volume * thickness;
+      volumeText = `${formatNumber(volume)} ${serviceInfo.unit} × tebal ${formatNumber(thickness)} cm`;
+    }
+
+    const basePrice = unitPrice * quantity;
     const maxPrice = basePrice * 1.25;
 
     // Update UI elements
     unitIndicator.textContent = `${formatNumber(volume)} ${serviceInfo.unit}`;
     summaryServiceName.textContent = serviceInfo.name;
     summaryPackageName.textContent = selectedPackageOption.textContent.split(' - ')[0];
-    summaryVolume.textContent = `${formatNumber(volume)} ${serviceInfo.unit}`;
-    summaryUnitPrice.textContent = `Rp ${formatNumber(unitPrice)} / ${serviceInfo.unit}`;
-    totalPriceOutput.textContent = `Rp ${formatNumber(basePrice)} - Rp ${formatNumber(maxPrice)}`;
+    summaryVolume.textContent = volumeText;
+    summaryUnitPrice.textContent = `Rp ${formatNumber(unitPrice)} / ${priceUnit}`;
+    totalPriceOutput.textContent = `Rp ${formatNumber(basePrice)}`;
+    if (totalRangeOutput) {
+      totalRangeOutput.textContent = `Bisa sampai Rp ${formatNumber(maxPrice)} tergantung kondisi lapangan`;
+    }
 
     // Build formatted WhatsApp message
     const waText =
@@ -255,9 +293,8 @@ function initCalculator() {
 
 - Kategori: ${serviceInfo.name}
 - Spesifikasi: ${selectedPackageOption.textContent.split(' - ')[0]}
-- Estimasi Volume: ${formatNumber(volume)} ${serviceInfo.unit}
+- Estimasi Volume: ${volumeText}
 - Estimasi Biaya: Rp ${formatNumber(basePrice)} - Rp ${formatNumber(maxPrice)}
-- Wilayah Proyek: ${location}
 
 Mohon informasi ketersediaan jadwal survey lokasi gratis dan rincian penawaran resminya. Terima kasih!`;
 
@@ -268,7 +305,7 @@ Mohon informasi ketersediaan jadwal survey lokasi gratis dan rincian penawaran r
   // Event Listeners for Calculator
   serviceSelect.addEventListener('change', updatePackageDropdown);
   packageSelect.addEventListener('change', calculateTotal);
-  locationSelect.addEventListener('change', calculateTotal);
+  if (thicknessInput) thicknessInput.addEventListener('input', calculateTotal);
 
   rangeSlider.addEventListener('input', (e) => {
     volumeInput.value = e.target.value;
