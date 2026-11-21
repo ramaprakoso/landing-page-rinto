@@ -588,63 +588,67 @@
   </section>
 
   <!-- ==========================================================================
-       KEPERCAYAAN KLIEN — PLACEHOLDER
-       Kotak bergaris putus-putus oranye (.is-placeholder / .placeholder-text)
-       = data yang masih harus diisi dengan data ASLI dari klien.
+       KEPERCAYAAN KLIEN — DATA CONTOH (DUMMY)
+       Angka statistik dan testimoni di bawah adalah CONTOH untuk tampilan.
+       Label "Contoh" (.sample-badge / .sample-note) sengaja tampil di halaman.
+       TODO KLIEN: ganti dengan data asli (angka proyek, testimoni dengan izin
+       klien), lalu hapus .sample-note dan semua .sample-badge.
+       Nomor legalitas (NIB / NPWP / SBU) disembunyikan sampai data asli ada.
        ========================================================================== -->
   <section class="trust-section" id="klien">
     <div class="container">
       <div class="section-header">
         <span class="section-tag">Dipercaya Klien</span>
-        <h2 class="section-title">Mitra Pekerjaan Sipil yang Bisa Diandalkan</h2>
+        <h2 class="section-title">Mitra Material & Konstruksi yang Bisa Diandalkan</h2>
         <p class="section-subtitle">
-          Pengalaman, klien, dan legalitas perusahaan kami.
+          Melayani kontraktor, developer, dan pemilik proyek di Jabodetabek, Karawang, dan sekitarnya.
         </p>
+        <p class="sample-note"><i class="fa-solid fa-circle-info"></i> Tampilan contoh: angka dan testimoni di bawah akan diperbarui dengan data asli perusahaan.</p>
       </div>
 
-      <!-- TODO KLIEN: isi angka asli -->
       <div class="trust-stats">
-        <div class="trust-stat is-placeholder"><strong>[angka]</strong><span>Proyek selesai</span></div>
-        <div class="trust-stat is-placeholder"><strong>[angka]</strong><span>m² area diaspal</span></div>
-        <div class="trust-stat is-placeholder"><strong>[angka]</strong><span>Tahun pengalaman</span></div>
-        <div class="trust-stat is-placeholder"><strong>[angka]</strong><span>Klien perusahaan</span></div>
+        <div class="trust-stat"><span class="sample-badge">Contoh</span><strong>150+</strong><span>Proyek & pengiriman</span></div>
+        <div class="trust-stat"><span class="sample-badge">Contoh</span><strong>50+</strong><span>Klien perusahaan</span></div>
+        <div class="trust-stat"><span class="sample-badge">Contoh</span><strong>10+</strong><span>Tahun pengalaman tim</span></div>
+        <div class="trust-stat"><strong>6</strong><span>Wilayah layanan utama</span></div>
       </div>
 
-      <!-- TODO KLIEN: ganti tiap .logo-slot dengan <img src="assets/images/logo-klien-1.png" alt="Nama Klien"> -->
-      <p class="trust-subtitle">Dipercaya oleh</p>
+      <p class="trust-subtitle">Segmen yang kami layani</p>
       <div class="trust-logos">
-        <div class="logo-slot is-placeholder"><i class="fa-regular fa-building"></i><span>Logo klien</span></div>
-        <div class="logo-slot is-placeholder"><i class="fa-regular fa-building"></i><span>Logo klien</span></div>
-        <div class="logo-slot is-placeholder"><i class="fa-regular fa-building"></i><span>Logo klien</span></div>
-        <div class="logo-slot is-placeholder"><i class="fa-regular fa-building"></i><span>Logo klien</span></div>
-        <div class="logo-slot is-placeholder"><i class="fa-regular fa-building"></i><span>Logo klien</span></div>
-        <div class="logo-slot is-placeholder"><i class="fa-regular fa-building"></i><span>Logo klien</span></div>
+        <div class="logo-slot segment-slot"><i class="fa-solid fa-helmet-safety"></i><span>Kontraktor Umum</span></div>
+        <div class="logo-slot segment-slot"><i class="fa-solid fa-house-chimney"></i><span>Developer Perumahan</span></div>
+        <div class="logo-slot segment-slot"><i class="fa-solid fa-industry"></i><span>Kawasan Industri & Pabrik</span></div>
+        <div class="logo-slot segment-slot"><i class="fa-solid fa-warehouse"></i><span>Gudang & Logistik</span></div>
+        <div class="logo-slot segment-slot"><i class="fa-solid fa-store"></i><span>Properti Komersial</span></div>
+        <div class="logo-slot segment-slot"><i class="fa-solid fa-road-bridge"></i><span>Proyek Infrastruktur</span></div>
       </div>
 
-      <!-- TODO KLIEN: testimoni asli (dengan izin klien) -->
       <div class="testimonial-grid">
-        <figure class="testimonial-card is-placeholder">
-          <i class="fa-solid fa-quote-left"></i>
-          <blockquote>[Testimoni singkat dari klien, 1–3 kalimat]</blockquote>
-          <figcaption><strong>[Nama]</strong><span>[Jabatan, Perusahaan / Proyek]</span></figcaption>
+        <figure class="testimonial-card">
+          <div class="testimonial-top"><i class="fa-solid fa-quote-left"></i><span class="sample-badge">Contoh testimoni</span></div>
+          <blockquote>Pengiriman U-Ditch dan box culvert sesuai jadwal, jadi pekerjaan drainase di lapangan tidak tertunda. Komunikasinya juga cepat lewat WhatsApp.</blockquote>
+          <figcaption><strong>Site Manager</strong><span>Kontraktor Infrastruktur, Bekasi</span></figcaption>
         </figure>
-        <figure class="testimonial-card is-placeholder">
-          <i class="fa-solid fa-quote-left"></i>
-          <blockquote>[Testimoni singkat dari klien, 1–3 kalimat]</blockquote>
-          <figcaption><strong>[Nama]</strong><span>[Jabatan, Perusahaan / Proyek]</span></figcaption>
+        <figure class="testimonial-card">
+          <div class="testimonial-top"><i class="fa-solid fa-quote-left"></i><span class="sample-badge">Contoh testimoni</span></div>
+          <blockquote>Kami rutin order mortar instan untuk proyek perumahan. Harganya kompetitif dan stok hampir selalu tersedia saat dibutuhkan.</blockquote>
+          <figcaption><strong>Staf Purchasing</strong><span>Developer Perumahan, Depok</span></figcaption>
         </figure>
-        <figure class="testimonial-card is-placeholder">
-          <i class="fa-solid fa-quote-left"></i>
-          <blockquote>[Testimoni singkat dari klien, 1–3 kalimat]</blockquote>
-          <figcaption><strong>[Nama]</strong><span>[Jabatan, Perusahaan / Proyek]</span></figcaption>
+        <figure class="testimonial-card">
+          <div class="testimonial-top"><i class="fa-solid fa-quote-left"></i><span class="sample-badge">Contoh testimoni</span></div>
+          <blockquote>Lantai gudang kami dipoles, hasilnya rata, bersih, dan jauh lebih mudah dirawat. Scope pekerjaan dan biaya dijelaskan sejak awal.</blockquote>
+          <figcaption><strong>Facility Manager</strong><span>Gudang Logistik, Cikarang</span></figcaption>
         </figure>
       </div>
 
-      <!-- TODO KLIEN: nomor legalitas perusahaan -->
       <div class="legal-strip">
-        <span><i class="fa-solid fa-building-shield"></i>NIB: <em class="placeholder-text">[isi]</em></span>
-        <span><i class="fa-solid fa-file-invoice"></i>NPWP: <em class="placeholder-text">[isi]</em></span>
-        <span><i class="fa-solid fa-certificate"></i>SBU / Sertifikat: <em class="placeholder-text">[isi]</em></span>
+        <!-- TODO KLIEN: aktifkan kembali setelah nomor legalitas asli tersedia
+        <span><i class="fa-solid fa-building-shield"></i>NIB: [isi]</span>
+        <span><i class="fa-solid fa-file-invoice"></i>NPWP: [isi]</span>
+        <span><i class="fa-solid fa-certificate"></i>SBU / Sertifikat: [isi]</span>
+        -->
+        <span><i class="fa-solid fa-building"></i>PT Manggala Artajaya Sejahtera · Depok, Jawa Barat</span>
+        <span><i class="fa-regular fa-clock"></i>Senin – Sabtu, 08.00 – 18.00 WIB</span>
         <a href="https://www.google.com/maps/search/?api=1&amp;query=Komplek+Vila+Gading+Emas+Rangkapan+Jaya+Baru+Pancoran+Mas+Depok" target="_blank" rel="noopener"><i class="fa-solid fa-location-dot"></i>Lihat Lokasi Kantor</a>
       </div>
     </div>
