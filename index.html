@@ -197,25 +197,52 @@
   <div class="mobile-overlay" id="mobileOverlay"></div>
 
   <!-- ==========================================================================
-       HERO (SEDERHANA)
-       Foto latar opsional: simpan foto di assets/images/foto-hero-beranda.jpg,
-       otomatis tampil di belakang overlay gelap. Tanpa foto, latar tetap navy.
+       HERO
+       Foto latar opsional: assets/images/foto-hero-beranda.jpg
        ========================================================================== -->
-  <section class="home-hero" id="home">
+  <section class="gx-hero" id="home">
     <div class="container">
-      <div class="home-hero-inner">
-        <p class="home-hero-kicker">Your Trusted Partner in Building Materials & Construction Solutions</p>
-        <h1 class="home-hero-title">Material Bangunan & Jasa Konstruksi untuk <span>Proyek Anda</span></h1>
-        <p class="home-hero-desc">
-          PT Manggala Artajaya Sejahtera menyediakan mortar, beton instan, beton precast, dan semen PCC, serta melayani jasa pengaspalan, pemasangan U-Ditch, dan poles beton di Jabodetabek, Karawang, dan sekitarnya.
-        </p>
-        <div class="hero-cta-group">
-          <a href="https://wa.me/6282260840642?text=Halo%20PT%20Manggala%20Artajaya%20Sejahtera%2C%20saya%20ingin%20meminta%20penawaran%20harga." target="_blank" rel="noopener" class="btn btn-primary btn-lg">
-            <i class="fa-brands fa-whatsapp"></i>
-            <span>Minta Penawaran</span>
+      <div class="gx-hero-center">
+        <span class="gx-hero-kicker">PT Manggala Artajaya Sejahtera</span>
+        <h1 class="gx-hero-title">Solusi material & jasa konstruksi untuk proyek Anda<span class="gx-dot">.</span></h1>
+        <p class="gx-hero-desc">Mortar, beton instan, beton precast, dan semen PCC, didukung jasa pengaspalan, pemasangan U-Ditch, dan poles beton. Harga kompetitif, pengiriman ke lokasi proyek.</p>
+        <div class="gx-hero-cta">
+          <a href="#produk" class="btn btn-primary btn-lg">Lihat produk <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="https://wa.me/6282260840642?text=Halo%20PT%20Manggala%20Artajaya%20Sejahtera%2C%20saya%20ingin%20meminta%20penawaran%20harga." target="_blank" rel="noopener" class="btn gx-btn-light btn-lg">Minta penawaran</a>
+        </div>
+      </div>
+
+      <div class="gx-hero-bottom">
+        <div class="gx-hero-proof">
+          <!-- TODO KLIEN: angka contoh, ganti dengan data asli -->
+          <strong>150+</strong>
+          <span>proyek & pengiriman material <em>(angka contoh)</em></span>
+          <div class="gx-hero-chips">
+            <span><i class="fa-solid fa-location-dot"></i> Jabodetabek & Karawang</span>
+            <span><i class="fa-solid fa-truck-fast"></i> Kirim ke lokasi</span>
+          </div>
+        </div>
+
+        <div class="gx-hero-products">
+          <a href="produk/mortar/index.html" class="gx-feature">
+            <div class="photo-slot gx-feature-media" data-photo-src="assets/images/foto-produk-mortar.jpg" data-photo-alt="Mortar instan"><i class="fa-solid fa-trowel-bricks"></i></div>
+            <div class="gx-feature-text">
+              <strong>Mortar Instan</strong>
+              <span>Bata ringan · plester · acian · keramik</span>
+            </div>
+            <span class="gx-round-arrow"><i class="fa-solid fa-arrow-right"></i></span>
           </a>
-          <a href="#layanan" class="btn btn-outline-white btn-lg">
-            <span>Lihat Produk & Jasa</span>
+          <a href="produk/beton-instan/index.html" class="gx-thumb">
+            <div class="photo-slot gx-thumb-media" data-photo-src="assets/images/foto-produk-beton-instan.jpg" data-photo-alt="Beton instan"><i class="fa-solid fa-bucket"></i></div>
+            <span>Beton Instan</span>
+          </a>
+          <a href="produk/precast/index.html" class="gx-thumb">
+            <div class="photo-slot gx-thumb-media" data-photo-src="assets/images/foto-produk-precast.jpg" data-photo-alt="Beton precast"><i class="fa-solid fa-cubes-stacked"></i></div>
+            <span>Precast</span>
+          </a>
+          <a href="produk/semen-pcc/index.html" class="gx-thumb">
+            <div class="photo-slot gx-thumb-media" data-photo-src="assets/images/foto-produk-semen-pcc.jpg" data-photo-alt="Semen PCC"><i class="fa-solid fa-box"></i></div>
+            <span>Semen PCC</span>
           </a>
         </div>
       </div>
@@ -223,126 +250,214 @@
   </section>
 
   <!-- ==========================================================================
-       STATISTIK — DATA CONTOH
-       TODO KLIEN: ganti angka contoh dengan data asli, lalu hapus .home-stats-note
+       MULAI DARI KEBUTUHAN ANDA
        ========================================================================== -->
-  <section class="home-stats-wrap" aria-label="Statistik perusahaan">
+  <section class="gx-start">
     <div class="container">
-      <div class="home-stats">
-        <div class="home-stat"><strong>150+</strong><span>Proyek & pengiriman</span></div>
-        <div class="home-stat"><strong>50+</strong><span>Klien perusahaan</span></div>
-        <div class="home-stat"><strong>10+</strong><span>Tahun pengalaman tim</span></div>
-        <div class="home-stat"><strong>6</strong><span>Wilayah layanan</span></div>
-      </div>
-      <p class="home-stats-note">* Angka contoh, akan diperbarui dengan data perusahaan.</p>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       PRODUK & JASA
-       ========================================================================== -->
-  <section class="home-offer" id="layanan">
-    <div class="container">
-      <div class="home-section-head">
-        <span class="section-tag">Produk & Jasa</span>
-        <h2 class="section-title">Satu Mitra untuk Material dan Pekerjaan Konstruksi</h2>
-      </div>
-
-      <h3 class="offer-group-title" id="produk">Produk Material</h3>
-      <div class="offer-grid offer-grid--4">
-        <a href="produk/mortar/index.html" class="offer-card">
-          <div class="photo-slot offer-media" data-photo-src="assets/images/foto-produk-mortar.jpg" data-photo-alt="Mortar instan"><i class="fa-solid fa-trowel-bricks"></i></div>
-          <div class="offer-body">
-            <h4>Mortar</h4>
-            <p>Pasangan bata, plesteran, acian, dan perekat keramik.</p>
-            <span class="offer-link">Lihat detail <i class="fa-solid fa-arrow-right"></i></span>
-          </div>
+      <div class="gx-start-grid">
+        <a href="#produk" class="gx-start-card">
+          <span class="gx-start-icon"><i class="fa-solid fa-boxes-stacked"></i></span>
+          <h3>Kenali produknya</h3>
+          <p>Mortar, beton instan, precast, dan semen untuk setiap tahap pekerjaan.</p>
+          <span class="gx-start-link">Lihat produk <span class="gx-round-arrow"><i class="fa-solid fa-arrow-right"></i></span></span>
         </a>
-        <a href="produk/beton-instan/index.html" class="offer-card">
-          <div class="photo-slot offer-media" data-photo-src="assets/images/foto-produk-beton-instan.jpg" data-photo-alt="Beton instan"><i class="fa-solid fa-bucket"></i></div>
-          <div class="offer-body">
-            <h4>Beton Instan</h4>
-            <p>Pengecoran praktis dengan mutu yang konsisten.</p>
-            <span class="offer-link">Lihat detail <i class="fa-solid fa-arrow-right"></i></span>
-          </div>
+        <a href="#jasa" class="gx-start-card">
+          <span class="gx-start-icon"><i class="fa-solid fa-calculator"></i></span>
+          <h3>Hitung estimasi jasa</h3>
+          <p>Estimasi biaya pengaspalan, U-Ditch, dan poles beton langsung di halaman jasa.</p>
+          <span class="gx-start-link">Pilih jasa <span class="gx-round-arrow"><i class="fa-solid fa-arrow-right"></i></span></span>
         </a>
-        <a href="produk/precast/index.html" class="offer-card">
-          <div class="photo-slot offer-media" data-photo-src="assets/images/foto-produk-precast.jpg" data-photo-alt="Produk beton precast"><i class="fa-solid fa-cubes-stacked"></i></div>
-          <div class="offer-body">
-            <h4>Precast Concrete</h4>
-            <p>Box culvert, U-Ditch, paving block, dan pagar beton.</p>
-            <span class="offer-link">Lihat detail <i class="fa-solid fa-arrow-right"></i></span>
-          </div>
-        </a>
-        <a href="produk/semen-pcc/index.html" class="offer-card">
-          <div class="photo-slot offer-media" data-photo-src="assets/images/foto-produk-semen-pcc.jpg" data-photo-alt="Semen PCC"><i class="fa-solid fa-box"></i></div>
-          <div class="offer-body">
-            <h4>Semen PCC</h4>
-            <p>Semen dan material dasar konstruksi.</p>
-            <span class="offer-link">Lihat detail <i class="fa-solid fa-arrow-right"></i></span>
-          </div>
-        </a>
-      </div>
-
-      <h3 class="offer-group-title" id="jasa">Jasa Konstruksi</h3>
-      <div class="offer-grid offer-grid--3">
-        <a href="pengaspalan/index.html" class="offer-card">
-          <img src="assets/images/pengaspalan-roller.jpg" alt="Pengaspalan hotmix" loading="lazy">
-          <div class="offer-body">
-            <h4>Pengaspalan Hotmix</h4>
-            <p>Jalan lingkungan, area parkir, gudang, dan pabrik.</p>
-            <span class="offer-link">Lihat detail <i class="fa-solid fa-arrow-right"></i></span>
-          </div>
-        </a>
-        <a href="uditch/index.html" class="offer-card">
-          <img src="assets/images/uditch-drainase-hero.jpg" alt="Pemasangan U-Ditch" loading="lazy">
-          <div class="offer-body">
-            <h4>Pemasangan U-Ditch</h4>
-            <p>Supply dan pemasangan saluran drainase precast.</p>
-            <span class="offer-link">Lihat detail <i class="fa-solid fa-arrow-right"></i></span>
-          </div>
-        </a>
-        <a href="poles-beton/index.html" class="offer-card">
-          <img src="assets/images/poles-beton-showcase.jpg" alt="Poles beton lantai" loading="lazy">
-          <div class="offer-body">
-            <h4>Poles Beton</h4>
-            <p>Lantai gudang, pabrik, dan showroom yang halus dan bersih.</p>
-            <span class="offer-link">Lihat detail <i class="fa-solid fa-arrow-right"></i></span>
-          </div>
+        <a href="https://wa.me/6282260840642?text=Halo%20PT%20Manggala%20Artajaya%20Sejahtera%2C%20saya%20ingin%20meminta%20penawaran%20harga." target="_blank" rel="noopener" class="gx-start-card">
+          <span class="gx-start-icon"><i class="fa-solid fa-file-signature"></i></span>
+          <h3>Minta penawaran harga</h3>
+          <p>Kirim kebutuhan proyek Anda, tim kami siapkan penawaran yang transparan.</p>
+          <span class="gx-start-link">Buat permintaan <span class="gx-round-arrow"><i class="fa-solid fa-arrow-right"></i></span></span>
         </a>
       </div>
     </div>
   </section>
 
   <!-- ==========================================================================
-       TENTANG KAMI + KENAPA MEMILIH KAMI
+       UNTUK SIAPA
        ========================================================================== -->
-  <section class="home-about" id="tentang">
+  <section class="gx-section">
     <div class="container">
-      <div class="home-about-grid">
-        <div class="home-about-text">
-          <span class="section-tag">Tentang Kami</span>
-          <h2 class="section-title">Mitra Penyedia Material Konstruksi yang Dapat Dipercaya</h2>
-          <p>
-            PT Manggala Artajaya Sejahtera bergerak di bidang perdagangan dan distribusi material bangunan serta penyediaan kebutuhan konstruksi untuk proyek infrastruktur, properti, dan komersial.
-          </p>
-          <p>
-            Kami mengutamakan kualitas produk, ketepatan pelayanan, ketersediaan barang, dan harga yang kompetitif, serta terus mengembangkan jaringan distribusi dan portofolio produk.
-          </p>
-          <blockquote class="home-vision">
-            <span>Visi kami</span>
-            Menjadi perusahaan distribusi material bangunan dan penyedia solusi konstruksi yang kompetitif, terpercaya, dan berkontribusi positif bagi pembangunan di Indonesia.
-          </blockquote>
+      <div class="gx-panel">
+        <span class="gx-pill">Untuk siapa</span>
+        <h2 class="gx-title">Apa pun skala proyek Anda</h2>
+        <div class="gx-grid-3">
+          <div class="gx-card">
+            <span class="gx-card-icon"><i class="fa-solid fa-house-chimney"></i></span>
+            <h3>Rumah dan renovasi</h3>
+            <p>Bangun atau renovasi rumah? Konsultasikan kebutuhan material supaya tidak kurang dan tidak berlebih.</p>
+            <a href="https://wa.me/6282260840642?text=Halo%2C%20saya%20ingin%20konsultasi%20kebutuhan%20material%20untuk%20rumah%20%2F%20renovasi." target="_blank" rel="noopener" class="gx-chip-link">Konsultasi</a>
+          </div>
+          <div class="gx-card">
+            <span class="gx-card-icon"><i class="fa-solid fa-helmet-safety"></i></span>
+            <h3>Kontraktor dan pemborong</h3>
+            <p>Gabungkan kebutuhan material dan pekerjaan dalam satu permintaan penawaran.</p>
+            <a href="https://wa.me/6282260840642?text=Halo%2C%20saya%20kontraktor%20dan%20ingin%20meminta%20penawaran%20material%20%2F%20jasa." target="_blank" rel="noopener" class="gx-chip-link">Minta penawaran</a>
+          </div>
+          <div class="gx-card">
+            <span class="gx-card-icon"><i class="fa-solid fa-industry"></i></span>
+            <h3>Proyek dan industri</h3>
+            <p>Untuk kawasan industri, gudang, dan infrastruktur, diskusikan kebutuhan Anda langsung dengan tim kami.</p>
+            <a href="#kontak" class="gx-chip-link">Hubungi kami</a>
+          </div>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="home-why">
-          <h3>Kenapa memilih kami</h3>
-          <ul class="home-why-list">
-            <li><i class="fa-solid fa-award"></i><div><strong>Produk berkualitas</strong><span>Sesuai kebutuhan dan spesifikasi proyek.</span></div></li>
-            <li><i class="fa-solid fa-file-invoice-dollar"></i><div><strong>Harga kompetitif & transparan</strong><span>Penawaran disusun berdasarkan volume dan lokasi.</span></div></li>
-            <li><i class="fa-solid fa-truck-fast"></i><div><strong>Pengiriman ke lokasi proyek</strong><span>Jadwal disesuaikan dengan kebutuhan proyek.</span></div></li>
-            <li><i class="fa-solid fa-headset"></i><div><strong>Pelayanan responsif</strong><span>Konsultasi dan penawaran cepat via WhatsApp.</span></div></li>
+  <!-- ==========================================================================
+       MENGAPA MAS
+       ========================================================================== -->
+  <section class="gx-section">
+    <div class="container">
+      <div class="gx-panel gx-panel--dark">
+        <span class="gx-pill">Mengapa kami</span>
+        <h2 class="gx-title">Kualitas, harga, layanan</h2>
+        <p class="gx-lead">Tiga hal yang kami jaga dari gudang sampai lokasi proyek Anda.</p>
+        <div class="gx-grid-3">
+          <div class="gx-card gx-card--dark">
+            <span class="gx-card-icon"><i class="fa-solid fa-award"></i></span>
+            <h3>Kualitas terjaga</h3>
+            <p>Produk dipilih sesuai kebutuhan dan spesifikasi proyek, dengan mutu yang konsisten.</p>
+          </div>
+          <div class="gx-card gx-card--dark">
+            <span class="gx-card-icon"><i class="fa-solid fa-file-invoice-dollar"></i></span>
+            <h3>Harga kompetitif</h3>
+            <p>Penawaran transparan, disusun berdasarkan jenis produk, volume, dan lokasi pengiriman.</p>
+          </div>
+          <div class="gx-card gx-card--dark">
+            <span class="gx-card-icon"><i class="fa-solid fa-headset"></i></span>
+            <h3>Layanan responsif</h3>
+            <p>Konsultasi cepat via WhatsApp dan pengiriman yang dijadwalkan sesuai target proyek.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       PRODUK
+       ========================================================================== -->
+  <section class="gx-section" id="produk">
+    <div class="container">
+      <div class="gx-panel">
+        <span class="gx-pill">Produk</span>
+        <h2 class="gx-title">Material untuk setiap tahap pekerjaan</h2>
+        <div class="gx-grid-2">
+          <article class="gx-product">
+            <div class="photo-slot gx-product-media" data-photo-src="assets/images/foto-produk-mortar.jpg" data-photo-alt="Mortar instan"><i class="fa-solid fa-trowel-bricks"></i></div>
+            <div class="gx-product-body">
+              <span class="gx-tag">Mortar</span>
+              <h3>Mortar Instan</h3>
+              <p>Mortar siap pakai untuk pasangan bata, plesteran, acian, dan perekat keramik.</p>
+              <dl class="gx-spec">
+                <div><dt>Kegunaan</dt><dd>Bata ringan, plester, acian, keramik</dd></div>
+                <div><dt>Pengerjaan</dt><dd>Cukup tambah air</dd></div>
+              </dl>
+              <div class="gx-product-actions">
+                <a href="produk/mortar/index.html" class="btn gx-btn-dark">Lihat detail</a>
+                <a href="https://wa.me/6282260840642?text=Halo%2C%20saya%20ingin%20menanyakan%20harga%20dan%20stok%20Mortar%20Instan." target="_blank" rel="noopener" class="gx-chip-link"><i class="fa-brands fa-whatsapp"></i> Tanya harga</a>
+              </div>
+            </div>
+          </article>
+          <article class="gx-product">
+            <div class="photo-slot gx-product-media" data-photo-src="assets/images/foto-produk-beton-instan.jpg" data-photo-alt="Beton instan"><i class="fa-solid fa-bucket"></i></div>
+            <div class="gx-product-body">
+              <span class="gx-tag">Beton</span>
+              <h3>Beton Instan</h3>
+              <p>Adukan beton siap pakai untuk pengecoran skala kecil–menengah dengan mutu konsisten.</p>
+              <dl class="gx-spec">
+                <div><dt>Kegunaan</dt><dd>Lantai kerja, kolom praktis, perbaikan</dd></div>
+                <div><dt>Pengerjaan</dt><dd>Cukup tambah air</dd></div>
+              </dl>
+              <div class="gx-product-actions">
+                <a href="produk/beton-instan/index.html" class="btn gx-btn-dark">Lihat detail</a>
+                <a href="https://wa.me/6282260840642?text=Halo%2C%20saya%20ingin%20menanyakan%20harga%20dan%20stok%20Beton%20Instan." target="_blank" rel="noopener" class="gx-chip-link"><i class="fa-brands fa-whatsapp"></i> Tanya harga</a>
+              </div>
+            </div>
+          </article>
+          <article class="gx-product">
+            <div class="photo-slot gx-product-media" data-photo-src="assets/images/foto-produk-precast.jpg" data-photo-alt="Beton precast"><i class="fa-solid fa-cubes-stacked"></i></div>
+            <div class="gx-product-body">
+              <span class="gx-tag">Precast</span>
+              <h3>Precast Concrete</h3>
+              <p>Produk beton pracetak untuk saluran, perkerasan, dan pagar kawasan.</p>
+              <dl class="gx-spec">
+                <div><dt>Produk</dt><dd>Box culvert, U-Ditch, paving, pagar</dd></div>
+                <div><dt>Ukuran</dt><dd>Tanyakan ketersediaan</dd></div>
+              </dl>
+              <div class="gx-product-actions">
+                <a href="produk/precast/index.html" class="btn gx-btn-dark">Lihat detail</a>
+                <a href="https://wa.me/6282260840642?text=Halo%2C%20saya%20ingin%20menanyakan%20harga%20dan%20stok%20produk%20precast." target="_blank" rel="noopener" class="gx-chip-link"><i class="fa-brands fa-whatsapp"></i> Tanya harga</a>
+              </div>
+            </div>
+          </article>
+          <article class="gx-product">
+            <div class="photo-slot gx-product-media" data-photo-src="assets/images/foto-produk-semen-pcc.jpg" data-photo-alt="Semen PCC"><i class="fa-solid fa-box"></i></div>
+            <div class="gx-product-body">
+              <span class="gx-tag">Semen</span>
+              <h3>Semen PCC</h3>
+              <p>Semen serbaguna dan material dasar untuk pekerjaan konstruksi umum.</p>
+              <dl class="gx-spec">
+                <div><dt>Kegunaan</dt><dd>Pasangan, beton umum, jalan</dd></div>
+                <div><dt>Kemasan</dt><dd>Hubungi kami</dd></div>
+              </dl>
+              <div class="gx-product-actions">
+                <a href="produk/semen-pcc/index.html" class="btn gx-btn-dark">Lihat detail</a>
+                <a href="https://wa.me/6282260840642?text=Halo%2C%20saya%20ingin%20menanyakan%20harga%20dan%20stok%20Semen%20PCC." target="_blank" rel="noopener" class="gx-chip-link"><i class="fa-brands fa-whatsapp"></i> Tanya harga</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       JASA KONSTRUKSI (FEATURE SPLIT)
+       ========================================================================== -->
+  <section class="gx-section" id="jasa">
+    <div class="container">
+      <div class="gx-panel gx-panel--dark gx-split">
+        <div>
+          <span class="gx-pill gx-pill--left">Jasa konstruksi</span>
+          <h2 class="gx-title gx-title--left">Butuh sekalian dikerjakan?</h2>
+          <p class="gx-lead gx-lead--left">Tim kami menangani pekerjaan sipil skala kecil–menengah, dengan scope dan estimasi biaya yang jelas sejak awal.</p>
+          <ul class="gx-jasa-list">
+            <li><a href="pengaspalan/index.html"><i class="fa-solid fa-road"></i><span><strong>Pengaspalan Hotmix</strong>Jalan lingkungan, parkir, gudang</span><i class="fa-solid fa-arrow-right"></i></a></li>
+            <li><a href="uditch/index.html"><i class="fa-solid fa-water"></i><span><strong>Pemasangan U-Ditch</strong>Supply & pasang saluran precast</span><i class="fa-solid fa-arrow-right"></i></a></li>
+            <li><a href="poles-beton/index.html"><i class="fa-solid fa-warehouse"></i><span><strong>Poles Beton</strong>Lantai gudang, pabrik, showroom</span><i class="fa-solid fa-arrow-right"></i></a></li>
           </ul>
+          <a href="https://wa.me/6282260840642?text=Halo%20PT%20Manggala%20Artajaya%20Sejahtera%2C%20saya%20ingin%20konsultasi%20dan%20survey%20untuk%20jasa%20konstruksi." target="_blank" rel="noopener" class="btn btn-primary">Tanya jadwal survey</a>
+        </div>
+        <div class="gx-split-media">
+          <img src="assets/images/uditch-drainase-hero.jpg" alt="Pemasangan U-Ditch oleh tim lapangan" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       TENTANG KAMI (RINGKAS)
+       ========================================================================== -->
+  <section class="gx-section" id="tentang">
+    <div class="container">
+      <div class="gx-panel">
+        <span class="gx-pill">Tentang kami</span>
+        <div class="gx-about">
+          <div>
+            <h2 class="gx-title gx-title--left">PT Manggala Artajaya Sejahtera</h2>
+            <p>Perusahaan perdagangan dan distribusi material bangunan serta penyedia kebutuhan konstruksi untuk proyek infrastruktur, properti, dan komersial.</p>
+            <p>Kami mengutamakan kualitas produk, ketepatan pelayanan, ketersediaan barang, dan harga yang kompetitif, serta terus mengembangkan jaringan distribusi dan portofolio produk.</p>
+          </div>
+          <div class="gx-vision">
+            <span>Visi</span>
+            <p>Menjadi perusahaan distribusi material bangunan dan penyedia solusi konstruksi yang kompetitif, terpercaya, dan berkontribusi positif bagi pembangunan di Indonesia.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -351,22 +466,16 @@
   <!-- ==========================================================================
        CTA PENUTUP
        ========================================================================== -->
-  <section class="home-cta">
+  <section class="gx-section gx-section--last">
     <div class="container">
-      <div class="home-cta-inner">
+      <div class="gx-cta">
         <div>
-          <h2>Siap Membantu Kebutuhan Proyek Anda</h2>
-          <p>Kirim kebutuhan material atau pekerjaan Anda, tim kami siapkan penawaran harga.</p>
+          <h2>Punya proyek? Kirim kebutuhannya ke kami.</h2>
+          <p>Tim kami siap menyiapkan penawaran harga material maupun jasa konstruksi.</p>
         </div>
-        <div class="home-cta-buttons">
-          <a href="https://wa.me/6282260840642?text=Halo%20PT%20Manggala%20Artajaya%20Sejahtera%2C%20saya%20ingin%20berdiskusi%20mengenai%20kebutuhan%20proyek%20saya." target="_blank" rel="noopener" class="btn btn-primary btn-lg">
-            <i class="fa-brands fa-whatsapp"></i>
-            <span>Chat WhatsApp</span>
-          </a>
-          <a href="https://share.google/iWx0ncyiR9gulRPdI" target="_blank" rel="noopener" class="btn btn-outline-white btn-lg">
-            <i class="fa-solid fa-location-dot"></i>
-            <span>Lihat Lokasi</span>
-          </a>
+        <div class="gx-cta-buttons">
+          <a href="https://wa.me/6282260840642?text=Halo%20PT%20Manggala%20Artajaya%20Sejahtera%2C%20saya%20ingin%20berdiskusi%20mengenai%20kebutuhan%20proyek%20saya." target="_blank" rel="noopener" class="btn btn-primary btn-lg"><i class="fa-brands fa-whatsapp"></i> Minta penawaran</a>
+          <a href="https://share.google/iWx0ncyiR9gulRPdI" target="_blank" rel="noopener" class="btn gx-btn-light btn-lg"><i class="fa-solid fa-location-dot"></i> Lihat lokasi</a>
         </div>
       </div>
     </div>
