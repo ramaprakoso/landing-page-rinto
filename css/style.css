@@ -5052,3 +5052,41 @@ h6 {
     grid-template-columns: 1fr;
   }
 }
+
+/* Keterangan website dalam pengembangan (hapus saat final) */
+.dev-banner {
+  background: var(--accent);
+  color: var(--on-accent);
+  font-size: 0.84rem;
+  line-height: 1.45;
+  padding: 8px 0;
+  text-align: center;
+}
+
+.dev-banner .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.dev-banner a {
+  color: var(--on-accent);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .dev-banner {
+    font-size: 0.78rem;
+    text-align: left;
+  }
+
+  .dev-banner .container {
+    align-items: flex-start;
+  }
+
+  .dev-banner i {
+    margin-top: 3px;
+  }
+}
