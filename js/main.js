@@ -13,7 +13,55 @@ document.addEventListener('DOMContentLoaded', () => {
   initFaqAccordion();
   initCounters();
   initFloatingWa();
+  initCatalogFilter();
 });
+
+/* ==========================================================================
+   KATALOG PRODUK: FILTER MEREK & MUTU
+   Kartu: [data-brand] [data-grade]; tombol: [data-filter-brand] / [data-filter-grade].
+   Link dengan hash kartu (mis. #javacrete-k300) tetap bisa langsung dibuka.
+   ========================================================================== */
+function initCatalogFilter() {
+  const grid = document.querySelector('[data-catalog-grid]');
+  if (!grid) return;
+  const cards = [...grid.querySelectorAll('.grade-card')];
+  const empty = document.querySelector('[data-catalog-empty]');
+  const count = document.querySelector('[data-catalog-count]');
+  const state = { brand: 'all', grade: 'all' };
+
+  const apply = () => {
+    let shown = 0;
+    cards.forEach(card => {
+      const ok = (state.brand === 'all' || card.dataset.brand === state.brand) &&
+                 (state.grade === 'all' || card.dataset.grade === state.grade);
+      card.hidden = !ok;
+      if (ok) shown++;
+    });
+    document.querySelectorAll('.filter-chip[data-filter-brand]').forEach(b =>
+      b.classList.toggle('is-active', b.dataset.filterBrand === state.brand));
+    document.querySelectorAll('.filter-chip[data-filter-grade]').forEach(b =>
+      b.classList.toggle('is-active', b.dataset.filterGrade === state.grade));
+    document.querySelectorAll('.brand-card[data-filter-brand]').forEach(b =>
+      b.classList.toggle('is-active', b.dataset.filterBrand === state.brand));
+    if (empty) empty.hidden = shown !== 0;
+    if (count) count.textContent = `Menampilkan ${shown} dari ${cards.length} produk`;
+  };
+
+  document.addEventListener('click', e => {
+    const btn = e.target.closest('[data-filter-brand], [data-filter-grade]');
+    if (!btn) return;
+    if (btn.dataset.filterBrand) {
+      // Klik kartu merek yang sedang aktif = kembali ke semua merek
+      const next = btn.dataset.filterBrand;
+      state.brand = btn.classList.contains('brand-card') && state.brand === next ? 'all' : next;
+      if (btn.classList.contains('brand-card')) grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    if (btn.dataset.filterGrade) state.grade = btn.dataset.filterGrade;
+    apply();
+  });
+
+  apply();
+}
 
 /* ==========================================================================
    0. SLOT FOTO (PLACEHOLDER FOTO ASLI)

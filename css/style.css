@@ -4817,3 +4817,209 @@ h6 {
     grid-template-columns: 1fr;
   }
 }
+
+/* ==========================================================================
+   KATALOG MULTI MEREK (FILTER MEREK & MUTU)
+   ========================================================================== */
+.brand-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.brand-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 20px 22px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.brand-card:hover,
+.brand-card.is-active {
+  border-color: var(--accent-strong);
+  box-shadow: var(--shadow-md);
+}
+
+.brand-card .gx-spec {
+  margin: 0;
+}
+
+.brand-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.brand-card-range {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.brand-card-link {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--secondary);
+}
+
+.brand-card-link i {
+  font-size: 0.75rem;
+  margin-left: 4px;
+}
+
+.brand-tag {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.brand-tag--prime28 {
+  background: #fdecec;
+  color: #b91c1c;
+}
+
+.brand-tag--javacrete {
+  background: #ececfb;
+  color: #3730a3;
+}
+
+.catalog-filters {
+  display: grid;
+  gap: 10px;
+  padding: 16px 18px;
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  margin-bottom: 12px;
+}
+
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-label {
+  min-width: 52px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.filter-chip {
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  background: #ffffff;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.filter-chip:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.filter-chip.is-active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #ffffff;
+}
+
+.catalog-count {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.grade-card[hidden] {
+  display: none;
+}
+
+.grade-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.grade-tags .gx-tag {
+  margin-bottom: 0;
+}
+
+.grade-empty {
+  padding: 28px;
+  text-align: center;
+  color: var(--text-secondary);
+  background: #ffffff;
+  border: 1px dashed var(--border-subtle);
+  border-radius: 16px;
+}
+
+.grade-empty a {
+  color: var(--secondary);
+  font-weight: 700;
+}
+
+/* Data teknis per merek */
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.tech-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+}
+
+.tech-card .spec-table-wrap {
+  max-width: none;
+}
+
+.tech-card .spec-table {
+  min-width: 0;
+}
+
+.howto-grid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  max-width: 1100px;
+}
+
+@media (max-width: 900px) {
+  .brand-grid,
+  .tech-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 540px) {
+  .filter-label {
+    width: 100%;
+  }
+}
