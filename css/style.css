@@ -5023,3 +5023,32 @@ h6 {
     width: 100%;
   }
 }
+
+/* Katalog kecil (2–3 produk): kartu lebih lebar */
+.grade-grid--wide {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.brand-tag--scg {
+  background: #fdecec;
+  color: #c81e1e;
+}
+
+.brand-tag--bezt {
+  background: #e7f6ec;
+  color: #15803d;
+}
+
+.tech-note {
+  margin-top: 10px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 640px) {
+  .grade-grid--wide {
+    grid-template-columns: 1fr;
+  }
+}
