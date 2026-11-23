@@ -21,12 +21,30 @@ document.addEventListener('DOMContentLoaded', () => {
    di assets/images, slot otomatis diganti foto; jika belum, slot tetap tampil.
    ========================================================================== */
 function initPhotoSlots() {
-  document.querySelectorAll('.photo-slot[data-photo-src]').forEach(slot => {
+  // Gambar uji tidak menempel di halaman, jadi loading="lazy" membuatnya tidak
+  // pernah dimuat. Sebagai gantinya, muat saat slot mendekati layar.
+  const load = slot => {
     const img = new Image();
     img.alt = slot.dataset.photoAlt || '';
-    img.loading = slot.dataset.photoEager ? 'eager' : 'lazy';
+    img.decoding = 'async';
     img.onload = () => slot.replaceWith(img);
     img.src = slot.dataset.photoSrc;
+  };
+
+  const slots = document.querySelectorAll('.photo-slot[data-photo-src]');
+  const observer = 'IntersectionObserver' in window
+    ? new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          obs.unobserve(entry.target);
+          load(entry.target);
+        });
+      }, { rootMargin: '400px 0px' })
+    : null;
+
+  slots.forEach(slot => {
+    if (slot.dataset.photoEager || !observer) load(slot);
+    else observer.observe(slot);
   });
 }
 
