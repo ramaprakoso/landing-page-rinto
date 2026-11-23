@@ -5320,3 +5320,27 @@ h6 {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/* Hero halaman produk: gambar katalog Canva (816x528) tampil utuh, tidak terpotong */
+.hero-main-card--catalog img,
+.hero-main-card--catalog .photo-slot {
+  height: auto;
+  aspect-ratio: 816 / 528;
+  object-fit: contain;
+  background: #f1f5f9;
+}
+
+.hero-main-card--catalog:hover img {
+  transform: none;
+}
+
+.hero-main-card--catalog .hero-card-badge {
+  top: auto;
+  bottom: 16px;
+}
+
+@media (max-width: 640px) {
+  .hero-main-card--catalog .hero-card-badge {
+    display: none;
+  }
+}
