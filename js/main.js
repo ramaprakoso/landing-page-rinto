@@ -14,7 +14,32 @@ document.addEventListener('DOMContentLoaded', () => {
   initCounters();
   initFloatingWa();
   initCatalogFilter();
+  initHeroSlides();
 });
+
+/* ==========================================================================
+   HERO BERANDA: LATAR FOTO BERGANTIAN
+   Ganti slide tiap 6 detik; berhenti saat tab tidak aktif atau
+   pengguna memilih reduced motion.
+   ========================================================================== */
+function initHeroSlides() {
+  const slides = document.querySelectorAll('.gx-hero-slide');
+  if (slides.length < 2) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  let current = 0;
+  let timer = null;
+  const next = () => {
+    slides[current].classList.remove('is-active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('is-active');
+  };
+  const start = () => { if (!timer) timer = setInterval(next, 6000); };
+  const stop = () => { clearInterval(timer); timer = null; };
+
+  document.addEventListener('visibilitychange', () => (document.hidden ? stop() : start()));
+  start();
+}
 
 /* ==========================================================================
    KATALOG PRODUK: FILTER MEREK & MUTU
