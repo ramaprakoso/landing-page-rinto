@@ -5090,3 +5090,173 @@ h6 {
     margin-top: 3px;
   }
 }
+
+/* ==========================================================================
+   KATALOG PRECAST PER KATEGORI
+   ========================================================================== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.pc-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 36px;
+}
+
+.pc-nav .filter-chip {
+  text-decoration: none;
+}
+
+.pc-list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 28px;
+}
+
+.pc-cat {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 28px;
+  min-width: 0;
+  scroll-margin-top: 110px;
+}
+
+.pc-cat:target {
+  border-color: var(--accent-strong);
+}
+
+.pc-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 32px;
+  align-items: start;
+  margin-bottom: 24px;
+}
+
+.pc-media.photo-slot,
+.pc-head > img {
+  display: flex;
+  width: 100%;
+  aspect-ratio: 816 / 528;
+  height: auto;
+  min-height: 0;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+  background: var(--bg-subtle);
+}
+
+.pc-info h3 {
+  font-size: 1.6rem;
+  margin: 8px 0 8px;
+}
+
+.pc-info > p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.pc-info .gx-spec {
+  margin-bottom: 16px;
+}
+
+.pc-specs {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+  display: grid;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.pc-specs li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.pc-specs i {
+  color: var(--accent-ink);
+  margin-top: 4px;
+  font-size: 0.8rem;
+}
+
+.pc-cta {
+  padding: 11px 20px;
+}
+
+.pc-table-wrap {
+  max-width: none;
+}
+
+.pc-table {
+  min-width: 640px;
+}
+
+.pc-table th,
+.pc-table td {
+  padding: 11px 14px;
+  white-space: nowrap;
+}
+
+.pc-table td.pc-ask,
+.pc-table th.pc-ask-col {
+  text-align: right;
+  width: 1%;
+}
+
+.pc-ask a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba(37, 211, 102, 0.12);
+  color: #128c4a;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.pc-ask a:hover {
+  background: rgba(37, 211, 102, 0.24);
+}
+
+.pc-subtitle {
+  font-size: 1.05rem;
+  margin: 24px 0 12px;
+}
+
+@media (max-width: 900px) {
+  .pc-head {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .pc-cat {
+    padding: 18px;
+    border-radius: var(--radius-lg);
+  }
+
+  .pc-info h3 {
+    font-size: 1.35rem;
+  }
+}
