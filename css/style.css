@@ -5429,3 +5429,304 @@ h6 {
     scroll-snap-align: start;
   }
 }
+
+/* ==========================================================================
+   HALAMAN PRODUK — VERSI RINGKAS
+   Kegunaan + keunggulan dalam satu section; data teknis + cara pakai dalam tab.
+   ========================================================================== */
+.product-overview-section {
+  padding: 64px 0 56px;
+  background: #ffffff;
+}
+
+.section-header--compact {
+  margin-bottom: 28px;
+}
+
+.use-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.use-chip {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--bg-page);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+}
+
+.use-chip-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #fdf3dc;
+  color: var(--accent-ink);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+.use-chip h3 {
+  font-size: 0.95rem;
+  margin: 0 0 2px;
+}
+
+.use-chip p {
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.benefit-strip {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-color);
+}
+
+.benefit-strip-title {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+.benefit-strip-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.benefit-mini {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.benefit-mini > i {
+  color: var(--accent-ink);
+  font-size: 1rem;
+  margin-top: 3px;
+  width: 18px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.benefit-mini h4 {
+  font-size: 0.92rem;
+  margin: 0 0 2px;
+}
+
+.benefit-mini p {
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Spesifikasi: tab */
+.product-spec-section {
+  padding: 64px 0;
+  background: var(--bg-page);
+}
+
+.ptabs {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.ptabs-bar {
+  display: flex;
+  gap: 6px;
+  padding: 10px;
+  border-bottom: 1px solid var(--border-color);
+  background: #ffffff;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.ptabs-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.ptab {
+  flex-shrink: 0;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text-secondary);
+  font: 600 0.88rem/1 var(--font-body, inherit);
+  padding: 10px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.ptab:hover {
+  background: var(--bg-page);
+  color: var(--text-main);
+}
+
+.ptab.is-active {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+.ptab:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.ptab-panel {
+  padding: 18px;
+}
+
+.ptab-panel[hidden] {
+  display: none;
+}
+
+.ptab-title {
+  font-size: 1rem;
+  margin-bottom: 12px;
+}
+
+.ptab-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.ptab-grid--split {
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  align-items: start;
+}
+
+.ptab-spec .spec-table-wrap {
+  max-width: none;
+  border-radius: 12px;
+}
+
+.ptab-spec .spec-table {
+  min-width: 0;
+}
+
+.ptab-spec .spec-table th,
+.ptab-spec .spec-table td {
+  padding: 9px 14px;
+  font-size: 0.86rem;
+}
+
+.ptab-howto {
+  background: var(--bg-page);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+
+.ptab-howto h4 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  margin: 0 0 8px;
+}
+
+.ptab-howto h4 i {
+  color: var(--accent-ink);
+}
+
+.ptab-howto ol {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.apd-line {
+  max-width: 1100px;
+  margin: 14px auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  font-size: 0.85rem;
+}
+
+.apd-line strong {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-main);
+}
+
+.apd-line strong i {
+  color: var(--accent-ink);
+}
+
+.apd-line .apd-list span {
+  padding: 5px 10px;
+  font-size: 0.78rem;
+}
+
+.product-spec-section .spec-cta {
+  margin-top: 24px;
+}
+
+@media (max-width: 900px) {
+  .ptab-grid--split {
+    grid-template-columns: 1fr;
+  }
+
+  .benefit-strip-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .product-overview-section,
+  .product-spec-section {
+    padding: 44px 0;
+  }
+
+  .use-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .use-chip {
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .use-chip-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 0.85rem;
+  }
+
+  .benefit-strip-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .ptab-panel {
+    padding: 12px;
+  }
+
+  .ptab-spec .spec-table th,
+  .ptab-spec .spec-table td {
+    padding: 8px 10px;
+    font-size: 0.8rem;
+  }
+}

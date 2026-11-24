@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFloatingWa();
   initCatalogFilter();
   initHeroSlides();
+  initProductTabs();
 });
 
 /* ==========================================================================
@@ -647,4 +648,37 @@ function initFloatingWa() {
   if (waWrapper.parentElement !== document.body) {
     document.body.appendChild(waWrapper);
   }
+}
+
+/* ==========================================================================
+   HALAMAN PRODUK: TAB DATA TEKNIS + CARA PAKAI
+   ========================================================================== */
+function initProductTabs() {
+  document.querySelectorAll('[data-ptabs]').forEach(box => {
+    const tabs = [...box.querySelectorAll('[role="tab"]')];
+    if (!tabs.length) return;
+    const select = (tab, focus) => {
+      tabs.forEach(t => {
+        const on = t === tab;
+        t.classList.toggle('is-active', on);
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.tabIndex = on ? 0 : -1;
+        const panel = document.getElementById(t.getAttribute('aria-controls'));
+        if (panel) panel.hidden = !on;
+      });
+      if (focus) tab.focus();
+      tab.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+    };
+    tabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => select(tab, false));
+      tab.addEventListener('keydown', e => {
+        let n = null;
+        if (e.key === 'ArrowRight') n = (i + 1) % tabs.length;
+        else if (e.key === 'ArrowLeft') n = (i - 1 + tabs.length) % tabs.length;
+        else if (e.key === 'Home') n = 0;
+        else if (e.key === 'End') n = tabs.length - 1;
+        if (n !== null) { e.preventDefault(); select(tabs[n], true); }
+      });
+    });
+  });
 }

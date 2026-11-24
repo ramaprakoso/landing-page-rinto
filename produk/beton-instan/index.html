@@ -45,7 +45,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/style.css?v=20261124">
 
   <!-- Schema.org: CollectionPage + Breadcrumb + ItemList + FAQPage -->
   <script type="application/ld+json">
@@ -622,64 +622,51 @@
   </section>
 
   <!-- ==========================================================================
-       JENIS & KEGUNAAN
+       KEGUNAAN & KEUNGGULAN (ringkas)
        ========================================================================== -->
-  <section class="product-uses-section" id="kegunaan">
+  <section class="product-overview-section" id="kegunaan">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header section-header--compact">
         <span class="section-tag">Beton Instan</span>
         <h2 class="section-title">Kegunaan Sesuai Mutu</h2>
       </div>
-      <div class="features-grid">
-        <div class="feature-box">
-          <div class="feature-icon-box"><i class="fa-solid fa-layer-group"></i></div>
-          <h4>K-100</h4>
-          <p>Untuk lantai kerja (LC).</p>
+      <div class="use-strip">
+        <div class="use-chip">
+          <span class="use-chip-icon"><i class="fa-solid fa-layer-group"></i></span>
+          <div><h3>K-100</h3><p>Untuk lantai kerja (LC).</p></div>
         </div>
-        <div class="feature-box">
-          <div class="feature-icon-box"><i class="fa-solid fa-house"></i></div>
-          <h4>K-175</h4>
-          <p>Pekerjaan non-struktural seperti kolom praktis dan sloof.</p>
+        <div class="use-chip">
+          <span class="use-chip-icon"><i class="fa-solid fa-house"></i></span>
+          <div><h3>K-175</h3><p>Pekerjaan non-struktural seperti kolom praktis dan sloof.</p></div>
         </div>
-        <div class="feature-box">
-          <div class="feature-icon-box"><i class="fa-solid fa-building"></i></div>
-          <h4>K-225 s/d K-500</h4>
-          <p>Untuk struktur seperti lantai, dinding beton, dan kolom.</p>
+        <div class="use-chip">
+          <span class="use-chip-icon"><i class="fa-solid fa-building"></i></span>
+          <div><h3>K-225 s/d K-500</h3><p>Untuk struktur seperti lantai, dinding beton, dan kolom.</p></div>
         </div>
-        <div class="feature-box">
-          <div class="feature-icon-box"><i class="fa-solid fa-warehouse"></i></div>
-          <h4>Screed K-300</h4>
-          <p>Perata lantai gudang, area parkir, dan lantai heavy duty yang dapat di-expose.</p>
+        <div class="use-chip">
+          <span class="use-chip-icon"><i class="fa-solid fa-warehouse"></i></span>
+          <div><h3>Screed K-300</h3><p>Perata lantai gudang, area parkir, dan lantai heavy duty yang dapat di-expose.</p></div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       KEUNGGULAN
-       ========================================================================== -->
-  <section class="product-benefits-section" id="keunggulan">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Keunggulan</span>
-        <h2 class="section-title">Kenapa Memilih Beton Instan dari Kami</h2>
-      </div>
-      <div class="benefits-grid">
-        <div class="benefit-item">
-          <i class="fa-solid fa-droplet"></i>
-          <div><h4>Super Praktis</h4><p>Cukup tambahkan air dan aduk, beton instan siap digunakan.</p></div>
-        </div>
-        <div class="benefit-item">
-          <i class="fa-solid fa-award"></i>
-          <div><h4>Kualitas Terjamin</h4><p>Mutu yang konsisten dengan bahan baku pilihan.</p></div>
-        </div>
-        <div class="benefit-item">
-          <i class="fa-solid fa-boxes-stacked"></i>
-          <div><h4>Efisien</h4><p>Meminimalkan pemborosan material dan hemat ruang penyimpanan.</p></div>
-        </div>
-        <div class="benefit-item">
-          <i class="fa-solid fa-broom"></i>
-          <div><h4>Kebersihan Optimal</h4><p>Area kerja tetap bersih dan rapi.</p></div>
+      <div class="benefit-strip" id="keunggulan">
+        <h3 class="benefit-strip-title">Kenapa memilih Beton Instan dari kami</h3>
+        <div class="benefit-strip-grid">
+          <div class="benefit-mini">
+            <i class="fa-solid fa-droplet"></i>
+            <div><h4>Super Praktis</h4><p>Cukup tambahkan air dan aduk, beton instan siap digunakan.</p></div>
+          </div>
+          <div class="benefit-mini">
+            <i class="fa-solid fa-award"></i>
+            <div><h4>Kualitas Terjamin</h4><p>Mutu yang konsisten dengan bahan baku pilihan.</p></div>
+          </div>
+          <div class="benefit-mini">
+            <i class="fa-solid fa-boxes-stacked"></i>
+            <div><h4>Efisien</h4><p>Meminimalkan pemborosan material dan hemat ruang penyimpanan.</p></div>
+          </div>
+          <div class="benefit-mini">
+            <i class="fa-solid fa-broom"></i>
+            <div><h4>Kebersihan Optimal</h4><p>Area kerja tetap bersih dan rapi.</p></div>
+          </div>
         </div>
       </div>
     </div>
@@ -697,8 +684,15 @@
         <h2 class="section-title">Data Teknis Beton Instan</h2>
         <p class="section-subtitle">Harga dan ketersediaan stok dapat berubah. Hubungi kami untuk penawaran terbaru sesuai volume dan lokasi proyek.</p>
       </div>
-      <div class="tech-grid">
-        <div class="tech-card"><h3>PRIME 28 Beton Instan</h3>
+    <div class="ptabs" data-ptabs>
+      <div class="ptabs-bar" role="tablist" aria-label="Data teknis Beton Instan">
+        <button type="button" class="ptab is-active" role="tab" id="pt-beton-instan-0" aria-controls="pp-beton-instan-0" aria-selected="true">PRIME 28 Beton Instan</button>
+        <button type="button" class="ptab" role="tab" id="pt-beton-instan-1" aria-controls="pp-beton-instan-1" aria-selected="false" tabindex="-1">Javacrete · Java Screed Plus 300</button>
+      </div>
+      <div class="ptab-panel" role="tabpanel" id="pp-beton-instan-0" aria-labelledby="pt-beton-instan-0">
+        <h3 class="sr-only">PRIME 28 Beton Instan</h3>
+        <div class="ptab-grid ptab-grid--split">
+          <div class="ptab-spec">
         <div class="spec-table-wrap">
         <table class="spec-table">
           <thead>
@@ -714,8 +708,22 @@
               <tr><td>Kemasan</td><td>50 kg</td></tr>
           </tbody>
         </table>
-        </div></div>
-        <div class="tech-card"><h3>Javacrete · Java Screed Plus 300</h3>
+        </div>
+          </div>
+          <div class="ptab-howto">
+            <h4><i class="fa-solid fa-list-ol"></i> Cara Pakai</h4>
+            <ol>
+              <li>Campurkan PRIME 28 Beton Instan dengan 4–5 liter air di dalam mixer beton.</li>
+              <li>Aduk hingga rata selama kurang lebih 15 menit.</li>
+              <li>PRIME 28 Beton Instan siap digunakan.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <div class="ptab-panel" role="tabpanel" id="pp-beton-instan-1" aria-labelledby="pt-beton-instan-1" hidden>
+        <h3 class="sr-only">Javacrete · Java Screed Plus 300</h3>
+        <div class="ptab-grid ptab-grid--split">
+          <div class="ptab-spec">
         <div class="spec-table-wrap">
         <table class="spec-table">
           <thead>
@@ -730,41 +738,25 @@
               <tr><td>Area pemakaian</td><td>Gudang, lahan parkir, overlay beton lama, pemasangan karpet / parquet / vinyl, workshop & lantai expose</td></tr>
           </tbody>
         </table>
-        </div></div>
+        </div>
+          </div>
+          <div class="ptab-howto">
+            <h4><i class="fa-solid fa-list-ol"></i> Cara Pakai</h4>
+            <ol>
+              <li>Campur: masukkan Javacrete Beton Instan ke dalam molen mixer, aduk ± 1 menit.</li>
+              <li>Aduk: tambahkan air ± 4–6 liter/sak, aduk kembali hingga merata ± 3 menit.</li>
+              <li>Ratakan dengan jidar, kemudian haluskan menggunakan roskam.</li>
+            </ol>
+          </div>
+        </div>
       </div>
+    </div>
+      <div class="apd-line"><strong><i class="fa-solid fa-shield-halved"></i> Gunakan APD:</strong> <div class="apd-list"><span><i class="fa-solid fa-helmet-safety"></i>Pelindung kepala</span> <span><i class="fa-solid fa-mitten"></i>Pelindung tangan</span> <span><i class="fa-solid fa-shoe-prints"></i>Pelindung kaki</span> <span><i class="fa-solid fa-head-side-mask"></i>Pelindung pernapasan</span> <span><i class="fa-solid fa-glasses"></i>Pelindung mata</span></div></div>
       <div class="spec-cta">
         <a href="https://wa.me/6282260840642?text=Halo%20PT%20Manggala%20Artajaya%20Sejahtera%2C%20saya%20ingin%20menanyakan%20harga%20dan%20stok%20Beton%20Instan." target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
           <i class="fa-brands fa-whatsapp"></i>
           <span>Tanya Harga & Stok Beton Instan</span>
         </a>
-      </div>
-      <div class="howto-grid">
-        <div class="howto-card">
-          <h3><i class="fa-solid fa-list-ol"></i> Cara Penggunaan PRIME 28</h3>
-          <ol>
-            <li>Campurkan PRIME 28 Beton Instan dengan 4–5 liter air di dalam mixer beton.</li>
-            <li>Aduk hingga rata selama kurang lebih 15 menit.</li>
-            <li>PRIME 28 Beton Instan siap digunakan.</li>
-          </ol>
-        </div>
-        <div class="howto-card">
-          <h3><i class="fa-solid fa-list-ol"></i> Cara Pemakaian Java Screed Plus 300</h3>
-          <ol>
-            <li>Campur: masukkan Javacrete Beton Instan ke dalam molen mixer, aduk ± 1 menit.</li>
-            <li>Aduk: tambahkan air ± 4–6 liter/sak, aduk kembali hingga merata ± 3 menit.</li>
-            <li>Ratakan dengan jidar, kemudian haluskan menggunakan roskam.</li>
-          </ol>
-        </div>
-        <div class="howto-card">
-          <h3><i class="fa-solid fa-shield-halved"></i> Gunakan Alat Pelindung Diri</h3>
-          <div class="apd-list">
-            <span><i class="fa-solid fa-helmet-safety"></i>Pelindung kepala</span>
-            <span><i class="fa-solid fa-mitten"></i>Pelindung tangan</span>
-            <span><i class="fa-solid fa-shoe-prints"></i>Pelindung kaki</span>
-            <span><i class="fa-solid fa-head-side-mask"></i>Pelindung pernapasan</span>
-            <span><i class="fa-solid fa-glasses"></i>Pelindung mata</span>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -1003,6 +995,6 @@
   </aside>
 
   <!-- JavaScript -->
-  <script src="../../js/main.js"></script>
+  <script src="../../js/main.js?v=20261124"></script>
 </body>
 </html>
